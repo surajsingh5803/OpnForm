@@ -24,7 +24,7 @@
     <section class="studio" aria-labelledby="studio-title">
       <img src="/img/self-hosted/studio-background.webp" alt="" class="studio-background" width="1122" height="1402" decoding="async" />
       <a :href="cloudUrl" target="_blank" rel="noopener noreferrer" class="studio-brand">
-        <img src="/img/logo.svg" alt="" />
+        <img src="/img/lp-forms-logo.svg" alt="" />
         <span>LP Forms</span>
       </a>
       <div class="studio-copy">
