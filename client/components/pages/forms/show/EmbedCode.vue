@@ -40,7 +40,7 @@ ${resizeComment}
   });
   
   // More SDK methods: opnform.get('${this.form.slug}').setField(id, value)
-  // Docs: https://docs.opnform.com/embedding/javascript-sdk
+  // Docs: https://github.com/surajsingh5803/OpnForm#readme
 <\/script>`
     },
     iframeCode() {
