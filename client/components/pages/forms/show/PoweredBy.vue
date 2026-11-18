@@ -19,7 +19,7 @@ const props = defineProps({
   },
   label: {
     type: String,
-    default: "Made with OpnForm",
+    default: "Made with LP Forms",
   },
   color: {
     type: String,
@@ -29,7 +29,7 @@ const props = defineProps({
 
 const targetLink = computed(() => {
   return (
-    "https://opnform.com?utm_source=" +
+    "https://lp-forms-web.onrender.com/?utm_source=" +
     props.source +
     "&utm_content=powered_by_btn"
   )
