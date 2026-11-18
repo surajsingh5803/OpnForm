@@ -182,7 +182,7 @@
               :to="{ name: user ? 'home' : 'index' }"
               class="inline-flex items-center gap-2 hover:no-underline"
             >
-              <img src="/img/logo.svg" alt="LP Forms" class="h-10 w-10" />
+              <img src="/img/lp-forms-logo.svg" alt="LP Forms" class="h-10 w-10" />
               <span class="text-2xl font-semibold tracking-tight text-neutral-950"
                 >LP Forms</span
               >
