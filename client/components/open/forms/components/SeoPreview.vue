@@ -66,20 +66,20 @@ const previewTitle = computed(() => {
   if (props.form.seo_meta?.page_title) {
     return props.form.seo_meta.page_title
   }
-  return props.form?.title ? `${props.form.title} - OpnForm` : 'OpnForm'
+  return props.form?.title ? `${props.form.title} - LP Forms` : 'LP Forms'
 })
 
 const previewDescription = computed(() => {
   if (props.form.seo_meta?.page_description) {
     return props.form.seo_meta.page_description
   }
-  return 'Build beautiful, powerful forms for free with OpnForm. Unlimited submissions, rich features, and seamless integrations — fully open-source and easy to use.'
+  return 'Build beautiful, powerful forms for free with LP Forms. Unlimited submissions, rich features, and seamless integrations — fully open-source and easy to use.'
 })
 
 const previewDomain = computed(() => {
   if (props.form?.custom_domain) {
     return props.form.custom_domain.toUpperCase()
   }
-  return 'OPNFORM.COM'
+  return useRequestURL().host.toUpperCase()
 })
 </script>
