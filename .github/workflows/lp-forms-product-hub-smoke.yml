@@ -30,6 +30,17 @@ jobs:
               assert "name: '" + route + "'" in nav, "Missing native sidebar destination: " + route
               print("PASS sidebar in-app route:", route)
 
+          config = Path("client/opnform.config.js").read_text()
+          for key, destination in {
+              "help_url": "/help",
+              "roadmap": "/product/roadmap",
+              "feature_requests": "/product/feature-requests",
+              "changelog_url": "/product/whats-new",
+              "api_docs": "/help/api",
+          }.items():
+              assert key + ': "' + destination + '"' in config, "Outdated config link: " + key
+              print("PASS product resource config:", key, destination)
+
           base = "https://lp-forms-web.onrender.com"
           class NoRedirect(urllib.request.HTTPRedirectHandler):
               def redirect_request(self, req, fp, code, msg, headers, newurl):
