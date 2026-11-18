@@ -59,7 +59,7 @@ const previewImage = computed(() => {
   if (props.form?.cover_picture) {
     return props.form.cover_picture
   }
-  return '/img/social-preview.jpg'
+  return '/img/lp-forms-social.svg'
 })
 
 const previewTitle = computed(() => {
