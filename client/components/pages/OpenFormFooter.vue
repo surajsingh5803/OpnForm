@@ -182,9 +182,9 @@
               :to="{ name: user ? 'home' : 'index' }"
               class="inline-flex items-center gap-2 hover:no-underline"
             >
-              <img src="/img/logo.svg" alt="OpnForm" class="h-10 w-10" />
+              <img src="/img/logo.svg" alt="LP Forms" class="h-10 w-10" />
               <span class="text-2xl font-semibold tracking-tight text-neutral-950"
-                >OpnForm</span
+                >LP Forms</span
               >
             </NuxtLink>
 
@@ -206,7 +206,7 @@
           <div
             class="text-sm leading-5 tracking-[0.6%] font-medium text-neutral-600 sm:text-right lg:mt-8 lg:text-left"
           >
-            {{ currYear }} OpnForm — All rights reserved
+            {{ currYear }} LP Forms — All rights reserved
             <span v-if="version" class="block mt-1">
               Version {{ version }}
             </span>
@@ -336,8 +336,8 @@ const linkGroups = computed(() => [
   {
     title: "Updates",
     links: [
-      { label: "Feedback", href: "https://feedback.opnform.com/" },
-      { label: "Changelog", href: "https://feedback.opnform.com/changelog" },
+      { label: "Feedback", href: "https://github.com/surajsingh5803/OpnForm/issues" },
+      { label: "Changelog", href: "https://github.com/surajsingh5803/OpnForm/issueschangelog" },
       { label: "Report abuse", to: { name: "report-abuse" } },
       { label: "Privacy Policy", to: { name: "privacy-policy" } },
       { label: "Terms & Conditions", to: { name: "terms-conditions" } },
