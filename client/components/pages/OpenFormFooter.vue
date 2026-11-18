@@ -337,7 +337,7 @@ const linkGroups = computed(() => [
     title: "Updates",
     links: [
       { label: "Feedback", href: "https://github.com/surajsingh5803/OpnForm/issues" },
-      { label: "Changelog", href: "https://github.com/surajsingh5803/OpnForm/issueschangelog" },
+      { label: "Changelog", href: "https://github.com/surajsingh5803/OpnForm/releases" },
       { label: "Report abuse", to: { name: "report-abuse" } },
       { label: "Privacy Policy", to: { name: "privacy-policy" } },
       { label: "Terms & Conditions", to: { name: "terms-conditions" } },
