@@ -2,7 +2,7 @@
   <UModal
     v-model:open="isOpen"
     title="Your first form is ready!"
-    description="Help more people discover OpnForm by starring the project on GitHub."
+    description="Help more people discover LP Forms by starring the project on GitHub."
     :ui="{ content: 'sm:max-w-md', footer: 'flex-col gap-2' }"
   >
     <template #body>
@@ -11,7 +11,7 @@
           <Icon name="i-heroicons-star" class="size-8 text-amber-500" />
         </div>
         <p class="text-sm leading-6 text-neutral-600 dark:text-neutral-300">
-          OpnForm is built by an open-source community. If it's been useful to you,
+          LP Forms is built by an open-source community. If it's been useful to you,
           a GitHub star is a small way to say thanks and support the project.
         </p>
       </div>
@@ -26,7 +26,7 @@
         @click="dismissPrompt"
       >
         <Icon name="i-simple-icons-github" class="size-5" />
-        Star OpnForm on GitHub
+        Star LP Forms on GitHub
         <Icon name="i-heroicons-arrow-up-right" class="size-4" />
       </UButton>
       <UButton color="neutral" variant="ghost" size="lg" block @click="dismissPrompt">
