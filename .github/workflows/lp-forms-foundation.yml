@@ -1,0 +1,35 @@
+name: LP Forms foundation
+
+on:
+  pull_request:
+    paths:
+      - 'client/app.vue'
+      - 'client/lib/brand-title.js'
+      - 'client/tests/brand-title.test.mjs'
+      - '.github/workflows/lp-forms-foundation.yml'
+  push:
+    branches:
+      - main
+      - 'feat/lp-forms-*'
+    paths:
+      - 'client/app.vue'
+      - 'client/lib/brand-title.js'
+      - 'client/tests/brand-title.test.mjs'
+      - '.github/workflows/lp-forms-foundation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  branding:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Check branding helper syntax
+        run: node --check client/lib/brand-title.js
+      - name: Run branding regression tests
+        run: node --test client/tests/brand-title.test.mjs
