@@ -89,13 +89,13 @@ useOpnSeoMeta({
   title: () => {
     if (!industry.value) return "Form Templates"
     if (industry.value.meta_title.length > 60) {
-      return industry.value.meta_title
+      return industry.value.meta_title.replace(/OpnForms?/gi, 'LP Forms')
     }
-    return industry.value.meta_title
+    return industry.value.meta_title.replace(/OpnForms?/gi, 'LP Forms')
   },
   description: () =>
     industry.value
-      ? industry.value.meta_description
+      ? industry.value.meta_description?.replace(/OpnForms?/gi, 'LP Forms')
       : "Our collection of beautiful templates to create your own forms!",
 })
 useHead({
