@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="LP Forms">
+  <defs>
+    <linearGradient id="lpforms-gradient" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2855E8"/><stop offset="1" stop-color="#22B7D7"/></linearGradient>
+  </defs>
+  <rect x="4" y="4" width="112" height="112" rx="29" fill="url(#lpforms-gradient)"/>
+  <rect x="27" y="21" width="66" height="78" rx="13" fill="#FFFFFF" opacity=".98"/>
+  <rect x="38" y="34" width="12" height="12" rx="3.5" fill="#2958EA"/>
+  <path d="m41 40 3 3 5-6" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="56" y="37" width="25" height="6" rx="3" fill="#A5B4D9"/>
+  <rect x="38" y="55" width="12" height="12" rx="3.5" fill="#2958EA" opacity=".88"/>
+  <path d="m41 61 3 3 5-6" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="56" y="58" width="25" height="6" rx="3" fill="#A5B4D9"/>
+  <rect x="38" y="76" width="12" height="12" rx="3.5" fill="#D9E3F4"/>
+  <rect x="56" y="79" width="25" height="6" rx="3" fill="#A5B4D9"/>
+</svg>
