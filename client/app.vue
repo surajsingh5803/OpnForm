@@ -49,7 +49,7 @@ useOpnSeoMeta({
   title: "Free Form Builder with Unlimited Submissions",
   description: () =>
     `Build beautiful, powerful forms for free with ${instanceName}. Unlimited submissions, rich features, and seamless integrations — fully open-source and easy to use.`,
-  ogImage: "/img/social-preview.jpg",
+  ogImage: "/img/lp-forms-social.svg",
   robots: () => {
     return config.public.env === "production" ? null : "noindex, nofollow"
   },
