@@ -1,0 +1,26 @@
+name: LP Forms branding text audit
+
+on:
+  push:
+    branches: [feat/lp-forms-phase1-foundation]
+    paths:
+      - '.github/workflows/lp-forms-brand-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Find brand references in user-facing source
+        shell: bash
+        run: |
+          echo "=== Client Vue/HTML branding references (filename and line) ==="
+          rg -n -i 'opnform|opn.form' client --glob '*.vue' --glob '*.html' | head -n 500 || true
+          echo "=== English language catalog ==="
+          rg -n -i 'opnform|opn.form' client/lang/en.json || true
+          echo "=== Email messages and notifications ==="
+          rg -n -i 'opnform|opn.form' api/resources/views/mail api/app/Mail api/app/Notifications --glob '*.php' | head -n 250 || true
