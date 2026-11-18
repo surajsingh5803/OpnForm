@@ -19,8 +19,8 @@ jobs:
         shell: bash
         run: |
           echo "=== Client Vue/HTML branding references (filename and line) ==="
-          rg -n -i 'opnform|opn.form' client --glob '*.vue' --glob '*.html' | head -n 500 || true
+          grep -RinE --include='*.vue' --include='*.html' 'opnform|opn.form' client | head -n 500 || true
           echo "=== English language catalog ==="
-          rg -n -i 'opnform|opn.form' client/lang/en.json || true
+          grep -inE 'opnform|opn.form' client/lang/en.json || true
           echo "=== Email messages and notifications ==="
-          rg -n -i 'opnform|opn.form' api/resources/views/mail api/app/Mail api/app/Notifications --glob '*.php' | head -n 250 || true
+          grep -RinE --include='*.php' 'opnform|opn.form' api/resources/views/mail api/app/Mail api/app/Notifications | head -n 250 || true
