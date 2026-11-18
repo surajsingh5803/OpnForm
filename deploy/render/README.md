@@ -14,7 +14,7 @@ All services are initially configured with automatic deploys disabled. A Bluepri
 
 1. `lp-forms-api / DATABASE_URL`: the dedicated Neon PostgreSQL URL. Use the direct (unpooled) connection string for migrations, with `sslmode=require`.
 2. `lp-forms-api / APP_KEY`: a Laravel application key in `base64:<32-byte-key>` format. Generate on a trusted terminal with `printf 'base64:%s\n' "$(openssl rand -base64 32)"`.
-3. `lp-forms-api / APP_URL`: the public UI URL, for example `https://lp-forms-web.onrender.com` initially, or the validated custom domain once configured.
+3. `lp-forms-api / APP_URL` is configured to `https://lp-forms-web.onrender.com` in the Blueprint. Update it to the verified custom domain only when domain setup is complete.
 
 Render automatically generates `FRONT_API_SECRET` and `JWT_SECRET`. The UI receives the shared API secret through a Blueprint cross-service reference; the database URL does not belong in the Nuxt frontend.
 
