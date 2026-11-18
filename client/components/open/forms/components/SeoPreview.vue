@@ -76,10 +76,12 @@ const previewDescription = computed(() => {
   return 'Build beautiful, powerful forms for free with LP Forms. Unlimited submissions, rich features, and seamless integrations — fully open-source and easy to use.'
 })
 
+const instanceHost = useRequestURL().host
+
 const previewDomain = computed(() => {
   if (props.form?.custom_domain) {
     return props.form.custom_domain.toUpperCase()
   }
-  return useRequestURL().host.toUpperCase()
+  return instanceHost.toUpperCase()
 })
 </script>
