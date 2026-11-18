@@ -26,12 +26,10 @@ services:
         value: production
       - key: APP_DEBUG
         value: "false"
-      # Laravel's public origin follows the actual Render web URL.
+      # Public URL of the frontend. Use explicit value; RENDER_EXTERNAL_URL is not
+      # available through cross-service env references in first-time syncs.
       - key: APP_URL
-        fromService:
-          type: web
-          name: lp-forms-web
-          envVarKey: RENDER_EXTERNAL_URL
+        value: https://lp-forms-web.onrender.com
       - key: DATABASE_URL
         sync: false
       # The startup script derives a stable Laravel base64 key from this random seed.
