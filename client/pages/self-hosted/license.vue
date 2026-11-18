@@ -14,7 +14,7 @@
             Buy a self-hosted license
           </h1>
           <p class="mx-auto mt-4 max-w-2xl text-lg font-normal leading-7 tracking-[-1.5%] text-neutral-600 sm:text-xl sm:leading-8">
-            Unlock Enterprise features for your self-hosted OpnForm instance.
+            Unlock Enterprise features for your self-hosted LP Forms instance.
             Checkout is handled by Stripe and your license key is delivered by email.
           </p>
         </div>
@@ -28,7 +28,7 @@
               What is included
             </h2>
             <p class="mt-3 text-base font-medium leading-7 tracking-[-1.1%] text-neutral-600">
-              Self-hosted Enterprise is for teams that want to run OpnForm on
+              Self-hosted Enterprise is for teams that want to run LP Forms on
               their own infrastructure while unlocking advanced workspace,
               identity, and governance controls.
             </p>
@@ -158,7 +158,7 @@ definePageMeta({
 
 useOpnSeoMeta({
   title: "Self-hosted Enterprise License",
-  description: "Buy a self-hosted OpnForm Enterprise license with self-service Stripe checkout.",
+  description: "Buy a self-hosted LP Forms Enterprise license with self-service Stripe checkout.",
 })
 
 const alert = useAlert()
@@ -203,7 +203,7 @@ const licenseFeatures = [
   {
     icon: "heroicons:paint-brush",
     title: "Branding controls",
-    description: "Remove OpnForm branding and use advanced workspace branding.",
+    description: "Remove LP Forms branding and use advanced workspace branding.",
   },
   {
     icon: "heroicons:document-text",
