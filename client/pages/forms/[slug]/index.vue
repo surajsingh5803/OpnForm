@@ -365,7 +365,7 @@ useHead({
       // Disable template if custom SEO title
       return titleChunk
     }
-    return titleChunk ? `${titleChunk} - OpnForm` : 'OpnForm'
+    return titleChunk ? `${titleChunk} - LP Forms` : 'LP Forms'
   },
   link: headLinks.value,
   meta: pageMeta.value.page_favicon ? [
