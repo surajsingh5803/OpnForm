@@ -1,0 +1,58 @@
+name: LP Forms deployed staging smoke test
+
+on:
+  push:
+    branches:
+      - feat/lp-forms-phase1-foundation
+    paths:
+      - .github/workflows/lp-forms-staging-smoke.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-deployed-staging:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Check live API, frontend and same-origin API proxy
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          import time
+          import urllib.error
+          import urllib.request
+
+          endpoints = [
+              ("Backend health", "https://lp-forms-api.onrender.com/healthz", "text"),
+              ("Frontend login", "https://lp-forms-web.onrender.com/login", "html"),
+              ("Feature flags proxy", "https://lp-forms-web.onrender.com/api/feature-flags", "json"),
+              ("Plan catalog proxy", "https://lp-forms-web.onrender.com/api/plan-catalog", "json"),
+          ]
+          for name, url, expected_format in endpoints:
+              last_error = "No response"
+              for attempt in range(1, 6):
+                  try:
+                      req = urllib.request.Request(url, headers={"User-Agent": "LPForms-Staging-Smoke/1.0"})
+                      with urllib.request.urlopen(req, timeout=40) as response:
+                          status = response.status
+                          content_type = response.headers.get("Content-Type", "")
+                          body = response.read(256_000)
+                      if status != 200:
+                          raise ValueError(f"Unexpected HTTP {status}")
+                      if expected_format == "json":
+                          json.loads(body)
+                      elif expected_format == "html" and "text/html" not in content_type:
+                          raise ValueError(f"Expected HTML, got {content_type}")
+                      print(f"PASS {name}: HTTP {status}")
+                      break
+                  except (urllib.error.URLError, ValueError, TimeoutError, json.JSONDecodeError) as exc:
+                      last_error = f"{type(exc).__name__}: {exc}"
+                      print(f"RETRY {name} attempt {attempt}: {last_error}")
+                      if attempt < 5:
+                          time.sleep(8)
+              else:
+                  raise SystemExit(f"FAIL {name}: {last_error}")
+          PY
