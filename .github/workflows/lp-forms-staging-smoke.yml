@@ -56,3 +56,56 @@ jobs:
               else:
                   raise SystemExit(f"FAIL {name}: {last_error}")
           PY
+
+
+      - name: Verify visible LP Forms identity and new branding assets
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import re
+          import urllib.request
+          from html.parser import HTMLParser
+
+          class VisibleText(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.hidden_depth = 0
+                  self.fragments = []
+              def handle_starttag(self, tag, attrs):
+                  if tag in ('script', 'style'):
+                      self.hidden_depth += 1
+                  attributes = dict(attrs)
+                  for key in ('alt', 'title', 'placeholder'):
+                      if attributes.get(key):
+                          self.fragments.append(attributes[key])
+                  if tag == 'meta' and attributes.get('name') in ('description', 'application-name'):
+                      self.fragments.append(attributes.get('content', ''))
+              def handle_endtag(self, tag):
+                  if tag in ('script', 'style') and self.hidden_depth:
+                      self.hidden_depth -= 1
+              def handle_data(self, data):
+                  if not self.hidden_depth:
+                      self.fragments.append(data)
+
+          def fetch(path):
+              req = urllib.request.Request('https://lp-forms-web.onrender.com' + path,
+                                           headers={'User-Agent': 'LPForms-Brand-Audit/1.0'})
+              with urllib.request.urlopen(req, timeout=60) as response:
+                  assert response.status == 200, (path, response.status)
+                  return response.read(900_000).decode('utf-8')
+
+          for path in ('/', '/login'):
+              parser = VisibleText()
+              parser.feed(fetch(path))
+              visible = ' '.join(parser.fragments)
+              if re.search(r'\\bopnforms?\\b', visible, flags=re.IGNORECASE):
+                  raise SystemExit('FAIL residual upstream name in visible text: ' + path)
+              assert 'LP Forms' in visible, 'LP Forms missing from ' + path
+              print('PASS LP Forms visible and no upstream text:', path)
+
+          for path in ('/favicon.svg', '/img/lp-forms-logo.svg', '/img/lp-forms-social.svg'):
+              content = fetch(path)
+              if 'LP Forms' not in content or '<svg' not in content:
+                  raise SystemExit('FAIL expected SVG with LP Forms identity: ' + path)
+              print('PASS branded asset:', path)
+          PY
