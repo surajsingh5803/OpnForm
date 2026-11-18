@@ -1,7 +1,7 @@
 <template>
   <footer class="mx-auto flex w-full max-w-5xl flex-col items-center justify-between gap-4 px-6 py-8 text-sm text-muted sm:flex-row">
     <a :href="cloudUrl" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 hover:text-highlighted">
-      <img src="/img/logo.svg" alt="" class="size-4" />
+      <img src="/img/lp-forms-logo.svg" alt="" class="size-4" />
       LP Forms
       <UIcon name="i-heroicons-arrow-up-right" class="size-3.5" />
     </a>
