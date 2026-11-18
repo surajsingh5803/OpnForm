@@ -21,7 +21,7 @@ export default defineEventHandler(async (event) => {
 
   setHeader(event, 'cache-control', 'no-store')
   try {
-    return await $fetch('/lp-product-feedback', {
+    const response = await $fetch.raw('/lp-product-feedback', {
       method: 'POST',
       baseURL: config.privateApiBase || config.public.apiBase,
       body: {
@@ -39,6 +39,8 @@ export default defineEventHandler(async (event) => {
       retry: 0,
       timeout: 15000,
     })
+    setResponseStatus(event, response.status)
+    return response._data
   } catch (error) {
     const status = error?.response?.status || 502
     throw createError({
