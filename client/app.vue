@@ -71,9 +71,14 @@ useHead({
   ],
   link: [
     {
+      rel: 'icon',
+      type: 'image/svg+xml',
+      href: '/favicon.svg'
+    },
+    {
       rel: 'apple-touch-icon',
-      type: 'image/png',
-      href: '/favicon.ico'
+      type: 'image/svg+xml',
+      href: '/favicon.svg'
     }
   ],
   htmlAttrs: () => ({
