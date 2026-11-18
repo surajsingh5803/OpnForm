@@ -90,13 +90,13 @@ useOpnSeoMeta({
   title: () => {
     if (!type.value) return "Form Templates"
     if (type.value.meta_title.length > 60) {
-      return type.value.meta_title
+      return type.value.meta_title.replace(/OpnForms?/gi, 'LP Forms')
     }
-    return type.value.meta_title
+    return type.value.meta_title.replace(/OpnForms?/gi, 'LP Forms')
   },
   description: () =>
     type.value
-      ? type.value.meta_description
+      ? type.value.meta_description?.replace(/OpnForms?/gi, 'LP Forms')
       : "Our collection of beautiful templates to create your own forms!",
 })
 useHead({
