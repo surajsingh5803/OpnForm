@@ -104,13 +104,13 @@ useHead({
     if (
       industry.value &&
       industry.value.meta_title.length < 60 &&
-      !industry.value.meta_title.toLowerCase().includes("opnform")
+      !industry.value.meta_title.toLowerCase().includes("lp forms")
     ) {
       return titleChunk
-        ? `${titleChunk} - OpnForm`
-        : "Form Templates - OpnForm"
+        ? `${titleChunk} - LP Forms`
+        : "Form Templates - LP Forms"
     }
-    return titleChunk ? titleChunk : "Form Templates - OpnForm"
+    return titleChunk ? titleChunk : "Form Templates - LP Forms"
   },
 })
 </script>
