@@ -23,14 +23,14 @@ class LicenseKeyNotification extends Notification
     public function toMail($notifiable): MailMessage
     {
         return (new MailMessage())
-            ->subject('Your OpnForm Enterprise License Key')
-            ->greeting('Thank you for purchasing OpnForm Enterprise!')
+            ->subject('Your LP Forms Enterprise License Key')
+            ->greeting('Thank you for purchasing LP Forms Enterprise!')
             ->line('Your license key is ready. Copy it and enter it in your self-hosted instance to activate Enterprise features.')
             ->line('**Your License Key:**')
             ->line('`' . $this->licenseKey->license_key . '`')
             ->line('**How to activate your license:**')
             ->line('1. Open your email and copy the license key.')
-            ->line('2. Go back to your self-hosted OpnForm instance.')
+            ->line('2. Go back to your self-hosted LP Forms instance.')
             ->line('3. Click your avatar in the sidebar and open **User Settings**.')
             ->line('4. Go to the **License** tab, paste your key, and click **Activate License**.');
     }
