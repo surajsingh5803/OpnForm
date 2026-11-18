@@ -71,7 +71,26 @@ export const useSharedNavigation = () => {
   }
 
   // Shared navigation sections (Product and Help)
-  const sharedNavigationSections = computed(() => [
+  // Native LP Forms support and product pages. Do not redirect users to raw
+  // GitHub issues or somebody else's feedback portal on self-hosted instances.
+  const sharedNavigationSections = computed(() => isSelfHosted.value ? [
+    {
+      name: 'Product',
+      items: [
+        createNavItem({ label: "What's new", icon: 'i-heroicons-megaphone', to: { name: 'product-whats-new' } }),
+        createNavItem({ label: 'Roadmap', icon: 'i-heroicons-map', to: { name: 'product-roadmap' } }),
+        createNavItem({ label: 'Feature Requests', icon: 'i-heroicons-light-bulb', to: { name: 'product-feature-requests' } }),
+      ],
+    },
+    {
+      name: 'Help',
+      items: [
+        createNavItem({ label: 'Help Center', icon: 'i-heroicons-question-mark-circle', to: { name: 'help' } }),
+        createNavItem({ label: 'API Docs', icon: 'i-heroicons-code-bracket', to: { name: 'help-api' } }),
+      ],
+    },
+  ] : [
+
     // Product section
     {
       name: 'Product',
