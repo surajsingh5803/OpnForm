@@ -55,6 +55,15 @@ if (config('app.self_hosted')) {
     Route::get('/healthcheck', [HealthCheckController::class, 'apiCheck']);
 }
 
+// LP Forms product feedback is managed by the local installation, not by
+// upstream cloud services. The Laravel controller verifies the Nuxt server
+// secret and keeps contact addresses out of public listing responses.
+Route::prefix('lp-product-feedback')->name('lp-product-feedback.')->group(function () {
+    Route::get('/', [\App\Http\Controllers\Content\LpProductFeedbackController::class, 'index'])->name('index');
+    Route::post('/', [\App\Http\Controllers\Content\LpProductFeedbackController::class, 'store'])
+        ->middleware('throttle:20,1')->name('store');
+});
+
 Route::middleware('mcp.enabled')->group(function () {
     Route::prefix('agent-drafts')->name('agent-drafts.')->middleware('mcp.guest-drafts')->group(function () {
         Route::get('/preview/{draft}', [AgentFormDraftController::class, 'preview'])
