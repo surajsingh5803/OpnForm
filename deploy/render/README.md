@@ -5,10 +5,15 @@ This Blueprint creates only LP Forms resources and does **not** create a Render 
 ## Services defined in render.yaml
 
 - `lp-forms-web`: public Nuxt SSR web service.
-- `lp-forms-api`: private Laravel/PHP-FPM + Nginx service.
-- `lp-forms-cache`: paid persistent Render Key Value service (Redis-compatible).
+- `lp-forms-api`: public Laravel/PHP-FPM + Nginx on free staging, private service in the paid draft.
+- `lp-forms-cache`: free ephemeral Redis-compatible Key Value in staging, paid persistent in the separate draft.
 
 All services are initially configured with automatic deploys disabled. A Blueprint creation/planning step alone does not deploy or bill; review and approve the Render plan before provisioning any paid resources.
+
+## Deployment tiers
+
+- `render-staging.yaml` is the currently deployed **free staging** configuration: two public web services, a free ephemeral Key Value instance, and Neon PostgreSQL. Render free web services **cannot receive private-network requests**, so Nuxt talks to the public Laravel API at `https://lp-forms-api.onrender.com`. Browsers still use Nuxt's same-origin `/api` route.
+- `render.yaml` is a separate **paid architecture draft** that uses a private Laravel API and a persistent Key Value instance. Do not apply without explicitly accepting the costs.
 
 ## Required secrets during first Blueprint approval
 
@@ -26,7 +31,7 @@ Render automatically generates `FRONT_API_SECRET` and `JWT_SECRET`. The UI recei
 - `MAIL_MAILER=log` does not send email. Configure a legitimate email provider, verified sender and retries before using notifications or password recovery.
 - Keep `JWT_SKIP_IP_UA_VALIDATION=false`, Laravel debug off, and secrets out of GitHub.
 - Use the correct origin, test HTTPS and redirects, then exercise sign-up, sign-in, form creation/publishing, submissions, exports, file uploads (after object storage), and email.
-- This proxy design keeps browser traffic on a single domain: `/api/*` and selected Laravel paths forward through Nuxt's Nitro fallback handlers to the private API. The API sees the path after the `/api` prefix has been removed, matching upstream Nginx behaviour.
+- This proxy design keeps browser traffic on a single domain: `/api/*` and selected Laravel paths forward through Nuxt's Nitro fallback handlers to the API. The API sees the path after the `/api` prefix has been removed, matching upstream Nginx behaviour.
 - The API startup runs upstream Laravel migrations. An invalid Neon URL or missing APP_KEY will block service startup.
 
 ## Required follow-up after provisioning
