@@ -12,12 +12,12 @@ export default {
     twitter: "https://digital.lazyplex.com",
     zapier_integration:
       "https://zapier.com/developer/public-invite/146950/58db583730cc46b821614468d94c35de/",
-    book_onboarding: "https://cal.com/julien-nahum/opnform-intro-call",
+    book_onboarding: "https://lazyplex.com",
     feature_requests: "https://github.com/surajsingh5803/OpnForm/issues",
     changelog_url: "https://github.com/surajsingh5803/OpnForm/releases",
     roadmap: "https://github.com/surajsingh5803/OpnForm/projects",
     tech_docs: "https://github.com/surajsingh5803/OpnForm#readme",
-    api_docs: "https://docs.opnform.com/api-reference/introduction",
-    self_hosting: "https://docs.opnform.com/deployment/docker",
+    api_docs: "https://github.com/surajsingh5803/OpnForm#readme",
+    self_hosting: "https://github.com/surajsingh5803/OpnForm#readme",
   },
 }
