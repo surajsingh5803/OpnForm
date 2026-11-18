@@ -1,0 +1,98 @@
+name: LP Forms native product hub smoke tests
+
+on:
+  push:
+    branches:
+      - feat/lp-forms-phase1-foundation
+    paths:
+      - .github/workflows/lp-forms-product-hub-smoke.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  product-hub-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check sidebar routes, backend feedback and public staging pages
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json, urllib.error, urllib.request
+
+          nav = Path("client/composables/components/useSharedNavigation.js").read_text()
+          for route in ("product-whats-new", "product-roadmap",
+                        "product-feature-requests", "help", "help-api"):
+              assert "name: '" + route + "'" in nav, "Missing native sidebar destination: " + route
+              print("PASS sidebar in-app route:", route)
+
+          base = "https://lp-forms-web.onrender.com"
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, req, fp, code, msg, headers, newurl):
+                  return None
+          opener = urllib.request.build_opener(NoRedirect)
+          pages = (
+              "/product/whats-new",
+              "/product/roadmap",
+              "/product/feature-requests",
+              "/help",
+              "/help/api",
+          )
+          for path in pages:
+              req = urllib.request.Request(base + path, headers={"User-Agent": "LPFormsProductSmoke/1"})
+              try:
+                  with opener.open(req, timeout=50) as response:
+                      status = response.status
+                      body = response.read(350_000).decode("utf-8", errors="replace")
+                      assert status == 200, (path, status)
+                      assert "LP Forms" in body, "Missing branding: " + path
+              except urllib.error.HTTPError as exc:
+                  assert exc.code in (302, 303, 307, 308), (path, exc.code)
+                  assert "/login" in (exc.headers.get("Location") or ""), (path, dict(exc.headers))
+              print("PASS app route (page or login protection):", path)
+
+          url = base + "/api/lp-product-feedback"
+          req = urllib.request.Request(url, headers={"Accept": "application/json"})
+          with urllib.request.urlopen(req, timeout=60) as response:
+              assert response.status == 200
+              before = json.loads(response.read())
+          assert isinstance(before.get("items"), list), before
+          assert all("contact_email" not in x for x in before["items"])
+          print("PASS Neon-backed feedback list:", len(before["items"]), "entries")
+
+          def post(data):
+              body = json.dumps(data).encode()
+              request = urllib.request.Request(
+                  url,
+                  body,
+                  {"Content-Type": "application/json", "Accept": "application/json"},
+                  method="POST",
+              )
+              try:
+                  with urllib.request.urlopen(request, timeout=60) as response:
+                      return response.status, json.loads(response.read())
+              except urllib.error.HTTPError as exc:
+                  return exc.code, json.loads(exc.read())
+
+          status, _ = post({"title": "No", "details": "Too short", "category": "feature"})
+          assert status == 422, ("Expected validation 422", status)
+          print("PASS malformed feedback rejected: HTTP 422")
+
+          status, payload = post({
+              "title": "Automated honeypot verification",
+              "details": "This is an automated form security check and must not be saved.",
+              "category": "feature",
+              "website": "https://example.test/bot-trap",
+          })
+          assert status == 202 and payload.get("received") is True, (status, payload)
+          print("PASS bot honeypot safely ignored: HTTP 202")
+
+          with urllib.request.urlopen(req, timeout=60) as response:
+              after = json.loads(response.read())
+          assert len(after["items"]) == len(before["items"]), "Honeypot unexpectedly wrote to database"
+          print("PASS no test feedback inserted")
+          PY
