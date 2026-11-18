@@ -109,3 +109,30 @@ jobs:
                   raise SystemExit('FAIL expected SVG with LP Forms identity: ' + path)
               print('PASS branded asset:', path)
           PY
+
+      - uses: actions/checkout@v4
+      - name: Guard key LP Forms screens against old visible branding
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          key_surfaces = [
+              'client/pages/setup.vue',
+              'client/pages/login.vue',
+              'client/components/pages/forms/show/PoweredBy.vue',
+              'client/components/layouts/BaseSidebar.vue',
+              'client/components/pages/self-hosted/SplitWelcome.vue',
+              'client/composables/useSelfHostedPresentation.js',
+              'client/components/pages/NotFoundForm.vue',
+              'client/pages/auth/[slug]/callback.vue',
+              'client/pages/oauth/[provider]/callback.vue',
+              'client/components/pages/forms/show/RegenerateFormLink.vue',
+          ]
+          for path in key_surfaces:
+              source = Path(path).read_text(encoding='utf-8')
+              assert 'OpnForm' not in source, f'Visible upstream brand remains in {path}'
+              print('PASS source brand guard:', path)
+          powered_by = Path('client/components/pages/forms/show/PoweredBy.vue').read_text(encoding='utf-8')
+          assert 'Made with LP Forms' in powered_by
+          print('PASS shared form preview/public-form badge is LP Forms')
+          PY
