@@ -34,7 +34,7 @@
         color="primary"
         variant="subtle"
         title="Link your existing account"
-        description="Sign in once with your existing OpnForm password to link it to your SSO account."
+        description="Sign in once with your existing LP Forms password to link it to your SSO account."
       />
 
       <UAlert
