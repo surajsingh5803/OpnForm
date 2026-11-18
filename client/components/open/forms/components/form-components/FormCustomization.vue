@@ -176,12 +176,12 @@
     >
       <template #label>
         <InputLabel
-          :label="'Hide OpnForm Branding'"
+          :label="'Hide LP Forms Branding'"
           :native-for="'no_branding'"
           class="text-sm font-medium!"
         />
         <PlanTag
-          upgrade-modal-title="Upgrade today to remove OpnForm branding"
+          upgrade-modal-title="Upgrade today to remove LP Forms branding"
           class="-mt-1 ml-2"
         />
       </template>
@@ -290,7 +290,7 @@ const onChangeConfettiOnSubmission = (val) => {
 
 const onChangeNoBranding = (val) => {
   if (!isPro.value && val) {
-    openSubscriptionModal({ modal_title: "Upgrade today to remove OpnForm branding" })
+    openSubscriptionModal({ modal_title: "Upgrade today to remove LP Forms branding" })
     setTimeout(() => {
       form.value.no_branding = false
     }, 300)
