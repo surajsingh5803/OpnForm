@@ -19,7 +19,7 @@
           </li>
           <li class="flex gap-3">
             <span class="flex-shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-blue-100 text-blue-700 font-semibold text-xs">2</span>
-            <span>Go back to your self-hosted OpnForm instance.</span>
+            <span>Go back to your self-hosted LP Forms instance.</span>
           </li>
           <li class="flex gap-3">
             <span class="flex-shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-blue-100 text-blue-700 font-semibold text-xs">3</span>
