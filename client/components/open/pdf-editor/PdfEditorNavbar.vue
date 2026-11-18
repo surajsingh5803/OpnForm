@@ -149,7 +149,7 @@
         <ToggleSwitchInput
           v-model="pdfTemplate.remove_branding"
           name="remove_branding"
-          help="Hide 'PDF generated with OpnForm' footer"
+          help="Hide 'PDF generated with LP Forms' footer"
         >
           <template #label>
             <span class="text-sm">
