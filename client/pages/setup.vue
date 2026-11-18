@@ -3,7 +3,7 @@
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
       <div class="flex justify-center items-center mb-6">
         <img
-          src="/img/logo.svg"
+          src="/img/lp-forms-logo.svg"
           alt="LP Forms logo"
           class="w-8 h-8"
         >
@@ -46,7 +46,7 @@ if (!setupRequired || !selfHosted) {
 
 // SEO
 useOpnSeoMeta({
-  title: "Setup - LP Forms",
+  title: "Setup",
   description: "Set up your LP Forms instance",
   robots: "noindex, nofollow"
 })
