@@ -5,7 +5,7 @@ export function useSelfHostedPresentation() {
 
   return {
     name: config.selfHostedName || 'LP Forms',
-    logoUrl: httpUrl(config.selfHostedLogoUrl) || '/img/logo.svg',
+    logoUrl: httpUrl(config.selfHostedLogoUrl) || '/img/lp-forms-logo.svg',
     privacyPolicyUrl: httpUrl(config.selfHostedPrivacyPolicyUrl),
     termsUrl: httpUrl(config.selfHostedTermsUrl),
   }
