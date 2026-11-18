@@ -3,8 +3,8 @@ import test from 'node:test'
 import { formatBrandTitle } from '../lib/brand-title.js'
 
 test('uses the default identity when no custom brand is configured', () => {
-  assert.equal(formatBrandTitle('Dashboard'), 'Dashboard - OpnForm')
-  assert.equal(formatBrandTitle(), 'OpnForm')
+  assert.equal(formatBrandTitle('Dashboard'), 'Dashboard - LP Forms')
+  assert.equal(formatBrandTitle(), 'LP Forms')
 })
 
 test('uses the configured LP Forms identity on browser tabs', () => {
@@ -15,5 +15,5 @@ test('uses the configured LP Forms identity on browser tabs', () => {
 test('avoids duplicate suffixes and invalid brand values', () => {
   assert.equal(formatBrandTitle('LP Forms', 'LP Forms'), 'LP Forms')
   assert.equal(formatBrandTitle('  Edit form  ', '  LP Forms  '), 'Edit form - LP Forms')
-  assert.equal(formatBrandTitle(null, ''), 'OpnForm')
+  assert.equal(formatBrandTitle(null, ''), 'LP Forms')
 })
