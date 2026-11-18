@@ -99,7 +99,7 @@ const actions = [
   {
     to: { name: 'index' },
     icon: 'i-heroicons-document-magnifying-glass',
-    text: 'Explore OpnForm'
+    text: 'Explore LP Forms'
   },
   {
     href: '#',
