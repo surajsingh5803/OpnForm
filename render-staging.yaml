@@ -120,8 +120,7 @@ services:
           type: web
           name: lp-forms-api
           envVarKey: FRONT_API_SECRET
-      - key: LP_FORMS_API_HOSTPORT
-        fromService:
-          type: web
-          name: lp-forms-api
-          property: hostport
+      # Free Render web services cannot receive private-network traffic.
+      # Use the fixed HTTPS endpoint of the separate public API web service.
+      - key: LP_FORMS_API_ORIGIN
+        value: https://lp-forms-api.onrender.com
