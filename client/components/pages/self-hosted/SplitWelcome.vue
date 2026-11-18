@@ -3,8 +3,8 @@
     <section class="instance" aria-labelledby="access-title">
       <div class="instance-access">
         <div class="instance-address">
-          <span class="instance-symbol"><img v-if="logoUrl !== '/img/logo.svg'" :src="logoUrl" alt="" /><UIcon v-else name="i-heroicons-server-stack" /></span>
-          <span class="instance-identity"><span v-if="name !== 'OpnForm'" class="instance-name">{{ name }}</span><span>{{ instanceHost }}</span></span>
+          <span class="instance-symbol"><img :src="logoUrl" alt="" /></span>
+          <span class="instance-identity"><span  class="instance-name">{{ name }}</span><span>{{ instanceHost }}</span></span>
         </div>
         <h1 id="access-title">Your team’s<br />form workspace.</h1>
         <p class="instance-description">Sign in to create forms and manage<br class="desktop-break" /> responses on this instance.</p>
@@ -13,7 +13,7 @@
         <p class="instance-note"><UIcon name="i-heroicons-information-circle" /><span>Looking for a form? Use the link shared with you.</span></p>
       </div>
       <footer class="instance-footer">
-        <p>Hosted independently · Powered by <a :href="cloudUrl" target="_blank" rel="noopener noreferrer">OpnForm</a></p>
+        <p>Hosted independently · Built with <a :href="cloudUrl" target="_blank" rel="noopener noreferrer">LP Forms</a></p>
         <div v-if="privacyPolicyUrl || termsUrl" class="instance-legal">
           <a v-if="privacyPolicyUrl" :href="privacyPolicyUrl">Privacy policy</a>
           <a v-if="termsUrl" :href="termsUrl">Terms</a>
@@ -25,7 +25,7 @@
       <img src="/img/self-hosted/studio-background.webp" alt="" class="studio-background" width="1122" height="1402" decoding="async" />
       <a :href="cloudUrl" target="_blank" rel="noopener noreferrer" class="studio-brand">
         <img src="/img/logo.svg" alt="" />
-        <span>OpnForm</span>
+        <span>LP Forms</span>
       </a>
       <div class="studio-copy">
         <h2 id="studio-title">Your forms.<br />Your way.</h2>
@@ -58,7 +58,7 @@
       </div>
       <div class="studio-bottom">
         <a :href="cloudUrl" target="_blank" rel="noopener noreferrer" class="studio-discover">
-          Build your own forms with OpnForm <UIcon name="i-heroicons-arrow-up-right" />
+          Build your own forms with LP Forms <UIcon name="i-heroicons-arrow-up-right" />
         </a>
       </div>
     </section>
@@ -68,7 +68,7 @@
 <script setup>
 const instanceHost = useRequestURL().host
 const { name, logoUrl, privacyPolicyUrl, termsUrl } = useSelfHostedPresentation()
-const cloudUrl = 'https://opnform.com?utm_source=self_hosted&utm_medium=instance&utm_campaign=welcome_split'
+const cloudUrl = '/'
 </script>
 
 <style scoped>
