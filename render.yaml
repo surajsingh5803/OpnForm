@@ -19,7 +19,6 @@ services:
     dockerContext: .
     dockerfilePath: deploy/render/Dockerfile.api
     dockerCommand: /usr/local/bin/serve-lp-forms-api
-    healthCheckPath: /healthz
     envVars:
       - key: APP_NAME
         value: LP Forms
@@ -27,12 +26,17 @@ services:
         value: production
       - key: APP_DEBUG
         value: "false"
+      # Laravel's public origin follows the actual Render web URL.
       - key: APP_URL
-        sync: false
+        fromService:
+          type: web
+          name: lp-forms-web
+          envVarKey: RENDER_EXTERNAL_URL
       - key: DATABASE_URL
         sync: false
-      - key: APP_KEY
-        sync: false
+      # The startup script derives a stable Laravel base64 key from this random seed.
+      - key: LP_FORMS_KEY_SEED
+        generateValue: true
       - key: FRONT_API_SECRET
         generateValue: true
       - key: JWT_SECRET
