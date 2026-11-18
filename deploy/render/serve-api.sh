@@ -1,9 +1,12 @@
 #!/bin/sh
 set -eu
 
-: "${APP_URL:?Set APP_URL to the public LP Forms https URL in Render}"
+: "${APP_URL:?Render must provide the public web URL}"
 : "${DATABASE_URL:?Set DATABASE_URL from Neon in Render}"
-: "${APP_KEY:?Set APP_KEY to a Laravel base64: key in Render}"
+: "${LP_FORMS_KEY_SEED:?Render must provide a stable generated key seed}"
+
+# Render keeps the seed stable across deploys. Convert it to a Laravel 32-byte key.
+export APP_KEY="$(php -r 'echo "base64:".base64_encode(hash("sha256", getenv("LP_FORMS_KEY_SEED"), true));')"
 
 export FRONT_URL="${FRONT_URL:-$APP_URL}"
 export PORT="${PORT:-10000}"
