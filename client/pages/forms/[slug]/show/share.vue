@@ -85,7 +85,7 @@
                 icon="i-heroicons-code-bracket"
                 variant="outline"
                 color="neutral"
-                to="https://docs.opnform.com/embedding/javascript-sdk"
+                to="https://github.com/surajsingh5803/OpnForm#readme"
                 target="_blank"
               />
             </div>
