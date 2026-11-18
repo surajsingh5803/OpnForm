@@ -32,7 +32,7 @@
         icon: 'i-heroicons-arrow-top-right-on-square',
         color: 'info',
         variant: 'solid',
-        to: 'https://docs.opnform.com/configuration/email-setup',
+        to: 'https://github.com/surajsingh5803/OpnForm#readme',
         target: '_blank'
       }]"
     />
