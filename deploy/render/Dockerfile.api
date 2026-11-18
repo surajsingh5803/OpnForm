@@ -1,0 +1,36 @@
+# Build LP Forms Laravel API from the fork, not upstream published images.
+FROM php:8.3.36-cli AS composer-deps
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libzip-dev libpng-dev unzip git && \
+    docker-php-ext-install -j$(nproc) bcmath gd zip pcntl && \
+    curl -fsSL https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+WORKDIR /app
+COPY api/ ./
+RUN composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
+
+FROM php:8.3.36-fpm-alpine
+RUN apk add --no-cache \
+    nginx gettext bash libzip libpng postgresql-client libpq procps unzip icu-libs \
+    && apk add --no-cache --virtual .build-deps \
+    $PHPIZE_DEPS libzip-dev libpng-dev postgresql-dev oniguruma-dev icu-dev \
+    && docker-php-ext-configure pgsql \
+    && docker-php-ext-configure gd \
+    && docker-php-ext-install -j$(nproc) pdo zip gd pgsql pdo_pgsql bcmath pcntl \
+    && pecl install redis \
+    && docker-php-ext-enable redis \
+    && apk del .build-deps
+
+WORKDIR /usr/share/nginx/html
+COPY --from=composer-deps /app/ ./
+COPY api/php/conf.d/ /usr/local/etc/php/conf.d/
+COPY docker/php-fpm-entrypoint /usr/local/bin/opnform-entrypoint
+COPY deploy/render/nginx-api.conf.template /etc/nginx/http.d/lp-forms.conf.template
+COPY deploy/render/serve-api.sh /usr/local/bin/serve-lp-forms-api
+RUN mkdir -p storage/framework/sessions storage/framework/views storage/framework/cache/data \
+    storage/logs storage/app/public bootstrap/cache && \
+    chown -R www-data:www-data storage bootstrap/cache && \
+    chmod -R 775 storage bootstrap/cache && \
+    chmod +x /usr/local/bin/opnform-entrypoint /usr/local/bin/serve-lp-forms-api
+ENV PORT=10000 APP_ENV=production
+EXPOSE 10000
+CMD ["/usr/local/bin/serve-lp-forms-api"]
