@@ -117,3 +117,19 @@ docker exec opnform-api sh -c "curl -sS https://getcomposer.org/installer | php 
 docker exec opnform-api composer install --no-interaction --optimize-autoloader
 docker restart opnform-api
 ```
+
+## LP Forms commercial licensing & client-sale release gates (standing instructions)
+
+LP Forms is intended for future sales to external customers and agency clients. Apply these requirements to **every** branding, product, deployment, billing, onboarding and licence-related change:
+
+- **Preserve upstream rights.** Keep the original root `LICENSE`, copyright headers and third-party licences. Changes to the AGPL-covered core remain under its AGPL-3.0 requirements; do not label the whole fork as proprietary or "all rights reserved".
+- **Offer actual modified core source.** A visible public page or footer must link to the matching LP Forms modified source branch/release and the full licence. Never silently replace that link with upstream-only sources. Check whether the running revision and source offer correspond before a paid release.
+- **Enterprise is a separate proprietary codebase.** Anything under `api/app/Enterprise/` is governed by `api/app/Enterprise/LICENSE`, not AGPL. Do not assume a public GitHub fork licenses that code for production or resale. Do not bypass enterprise entitlements, licence checks, seat limits, or branding restrictions.
+- **Preserve core restrictions.** The free self-hosted instance limit is 2 users unless a valid Enterprise entitlement applies. The upstream policy lists advanced white-label branding, SAML/LDAP, per-workspace features and more than 2 seats as Enterprise; even rebranded interfaces require legal review of the upstream commercial feature boundary.
+- **No "core-only" assertion without code audit.** Enterprise OIDC classes are referenced from non-Enterprise controllers, so deleting the folder blindly can break authentication. Before packaging or publishing a commercial build, audit all proprietary code paths and obtain legal/licensor confirmation or perform a verified, tested core-only refactor. Do not distribute proprietary modules as AGPL.
+- **Own the customer-facing policies.** Never present the original vendor's Privacy Policy, Terms or abuse form as LP Forms' contractual policies. The current LP Forms policy pages are staging drafts, not legal approval.
+- **Commercial sales are gated.** Do not represent LP Forms as ready for paid customers or real/sensitive submissions until the licence boundary, authorisation to offer white labelling, exact source disclosure, correct operator identity, policies, privacy/security, service commitments and production infrastructure have been reviewed.
+- **Avoid misleading claims.** Do not attribute upstream customer logos, review scores, GitHub stars or commercial guarantees to LP Forms. Confirm the accuracy of claims before paid launch.
+- **Document evidence and tests.** Maintain `deploy/lp-forms/COMMERCIAL-COMPLIANCE.md` as the status checklist. Keep secrets out of the public repository.
+
+When the user asks to "just change text", do not remove features, rewrite links, alter layouts or touch technical identifiers to achieve cosmetic branding. The AGPL attribution and mandatory open-source notices must remain visible regardless of design preferences.
