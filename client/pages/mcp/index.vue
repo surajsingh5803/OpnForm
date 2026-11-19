@@ -27,7 +27,7 @@
               />
               <span class="relative inline-flex h-2 w-2 rounded-full bg-blue-600" />
             </span>
-            OpnForm for AI agents
+            LP Forms for AI agents
           </div>
 
           <h1
@@ -39,7 +39,7 @@
           <p
             class="mt-6 max-w-xl text-lg leading-8 text-neutral-600 sm:text-xl sm:leading-9"
           >
-            Ask your AI assistant for the form you need. OpnForm creates a private
+            Ask your AI assistant for the form you need. LP Forms creates a private
             draft, lets you preview it, and hands it back to you in the full editor
             when you are ready.
           </p>
@@ -92,7 +92,7 @@
                 </div>
                 <div>
                   <p class="text-sm font-semibold text-neutral-950">Your AI assistant</p>
-                  <p class="text-xs text-neutral-500">Connected to OpnForm</p>
+                  <p class="text-xs text-neutral-500">Connected to LP Forms</p>
                 </div>
               </div>
               <span
@@ -233,13 +233,13 @@
         </div>
         <div class="space-y-5 text-lg leading-8 text-neutral-600">
           <p>
-            MCP is a shared way for AI assistants to work with products like OpnForm.
+            MCP is a shared way for AI assistants to work with products like LP Forms.
             Instead of copying questions between a chat and a form builder, your
             assistant can create the draft for you.
           </p>
           <p>
             You stay in control: review the real form, ask for changes in the
-            conversation, then continue in OpnForm to customize, save, and publish it.
+            conversation, then continue in LP Forms to customize, save, and publish it.
           </p>
         </div>
       </div>
@@ -286,7 +286,7 @@
             Start without an account. Connect when you need more.
           </h2>
           <p class="mt-5 text-lg leading-8 text-neutral-600">
-            OpnForm keeps the first experience frictionless without giving an agent
+            LP Forms keeps the first experience frictionless without giving an agent
             more access than it needs.
           </p>
         </div>
@@ -345,7 +345,7 @@
             <UButton
               :to="{ name: 'ai-form-builder' }"
               variant="link"
-              label="Explore OpnForm's built-in AI form builder"
+              label="Explore LP Forms's built-in AI form builder"
               trailing-icon="i-heroicons-arrow-right-20-solid"
               class="mt-5 px-0"
             />
@@ -397,7 +397,7 @@
           <div>
             <p class="text-sm font-semibold uppercase tracking-[0.14em] text-blue-600">FAQ</p>
             <h2 class="mt-4 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
-              Questions about the OpnForm MCP
+              Questions about the LP Forms MCP
             </h2>
           </div>
           <div class="divide-y divide-neutral-200 border-y border-neutral-200">
@@ -431,10 +431,10 @@
             Your next form can start as a conversation
           </p>
           <h2 class="mt-4 text-3xl font-semibold tracking-tight !text-white sm:text-4xl lg:text-5xl">
-            Connect OpnForm to your AI assistant
+            Connect LP Forms to your AI assistant
           </h2>
           <p class="mx-auto mt-5 max-w-2xl text-lg leading-8 text-blue-100">
-            Start with a private draft — no OpnForm account required. Connect your
+            Start with a private draft — no LP Forms account required. Connect your
             account later when you want to save, publish, or manage existing forms.
           </p>
           <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
@@ -452,7 +452,7 @@
               size="lg"
               variant="solid"
               color="neutral"
-              label="Create a form in OpnForm"
+              label="Create a form in LP Forms"
               trailing-icon="i-heroicons-arrow-right-20-solid"
               class="justify-center rounded-xl px-5 !bg-blue-950 !text-white hover:!bg-blue-900"
             />
@@ -474,7 +474,7 @@ definePageMeta({
 useOpnSeoMeta({
   title: "MCP Form Builder for AI Agents",
   description:
-    "Create, preview, and refine forms with your AI assistant using OpnForm MCP. Start without an account, then save and manage forms when ready.",
+    "Create, preview, and refine forms with your AI assistant using LP Forms MCP. Start without an account, then save and manage forms when ready.",
 })
 
 defineRouteRules({
@@ -624,7 +624,7 @@ const steps = [
   },
   {
     icon: "i-heroicons-pencil-square-20-solid",
-    title: "Finish it in OpnForm",
+    title: "Finish it in LP Forms",
     description:
       "Move the draft into the visual editor, adjust the design, sign in when you want to save, and publish only when you decide.",
   },
@@ -635,14 +635,14 @@ const modes = [
     eyebrow: "Guest mode",
     title: "Create first, sign up later",
     description:
-      "Try the MCP form builder from a compatible AI assistant without creating an OpnForm account.",
+      "Try the MCP form builder from a compatible AI assistant without creating an LP Forms account.",
     icon: "i-heroicons-sparkles-20-solid",
     iconClass: "bg-amber-100 text-amber-700",
     accentClass: "bg-amber-100",
     items: [
       "Create a private draft that lasts seven days",
       "Preview and revise the form in your conversation",
-      "Open the draft in OpnForm's visual editor",
+      "Open the draft in LP Forms's visual editor",
     ],
   },
   {
@@ -698,7 +698,7 @@ const guardrails = [
   {
     icon: "i-heroicons-lock-closed-20-solid",
     title: "Secure account connection",
-    description: "Connect with OpnForm directly instead of sharing a password in the conversation.",
+    description: "Connect with LP Forms directly instead of sharing a password in the conversation.",
   },
   {
     icon: "i-heroicons-document-magnifying-glass-20-solid",
@@ -709,12 +709,12 @@ const guardrails = [
 
 const faqs = [
   {
-    question: "What is the OpnForm MCP form builder?",
+    question: "What is the LP Forms MCP form builder?",
     answer:
-      "It connects a compatible AI assistant to OpnForm. You can describe a form in a conversation, receive a working preview, refine it, and then continue in OpnForm's visual editor.",
+      "It connects a compatible AI assistant to LP Forms. You can describe a form in a conversation, receive a working preview, refine it, and then continue in LP Forms's visual editor.",
   },
   {
-    question: "Do I need an OpnForm account to create a form with an AI agent?",
+    question: "Do I need an LP Forms account to create a form with an AI agent?",
     answer:
       "No. Guest mode can create a private draft without an account. The draft lasts seven days, and you only need to sign in when you want to save it to a workspace.",
   },
@@ -726,12 +726,12 @@ const faqs = [
   {
     question: "Can an AI assistant access my form submissions?",
     answer:
-      "Only after you securely connect your OpnForm account. It can search, read, summarize, and export accessible submissions, but it cannot edit or delete response data.",
+      "Only after you securely connect your LP Forms account. It can search, read, summarize, and export accessible submissions, but it cannot edit or delete response data.",
   },
   {
-    question: "Which AI assistants work with OpnForm MCP?",
+    question: "Which AI assistants work with LP Forms MCP?",
     answer:
-      "OpnForm is designed for ChatGPT and other AI assistants or agent clients that support remote MCP servers or Agent Plugins. Setup details vary by client, so check the integration guide for current instructions.",
+      "LP Forms is designed for ChatGPT and other AI assistants or agent clients that support remote MCP servers or Agent Plugins. Setup details vary by client, so check the integration guide for current instructions.",
   },
 ]
 
