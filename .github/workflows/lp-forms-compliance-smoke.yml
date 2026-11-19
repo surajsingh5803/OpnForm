@@ -49,7 +49,6 @@ jobs:
               content = Path(page).read_text()
               assert 'notionCmsStore.loadPage' not in content, 'Upstream Notion legal content still loads'
               assert 'staging draft' in content
-              assert 'client' not in ''  # No-op compatibility check; actual legal review is separate
               print('PASS: first-party staging page replaces upstream policy:', page)
 
           agent = Path('AGENTS.md').read_text()
