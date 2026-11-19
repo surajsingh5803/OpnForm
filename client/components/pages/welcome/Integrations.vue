@@ -15,7 +15,7 @@
           <h3
             class="my-4 text-4xl sm:text-5xl font-semibold text-white tracking-[-1%] leading-14"
           >
-            Connect OpnForm to your workflow.
+            Connect LP Forms to your workflow.
           </h3>
           <p
             class="text-base tracking-[-1.1%] font-medium leading-7 text-gray-400"
