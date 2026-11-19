@@ -5,7 +5,7 @@
     competitor-icon-class="text-[#7248B9]"
     hero-import-source="google_forms"
     hero-secondary-cta-label="Have a Google Form? Import it now"
-    :hero-title="'OpnForm — The Open-Source Google Forms Alternative'"
+    :hero-title="'LP Forms — The Open-Source Google Forms Alternative'"
     :free-plan-comparison="freePlanComparison"
     :switch-reasons="switchReasons"
     :feature-comparison="featureComparison"
@@ -13,7 +13,7 @@
     <template #hero-subtitle>
       Build powerful forms with <b>unlimited responses, deep customization, and full control over your data</b> — without limitations.
       <br/><br/>
-      Google Forms is a simple and reliable tool for basic data collection. It’s widely used for surveys and internal workflows, especially within the Google ecosystem. However, it has limitations when it comes to customization, advanced workflows, and developer flexibility. OpnForm provides a modern form-building experience with <b>greater flexibility, customization, and scalability.</b>
+      Google Forms is a simple and reliable tool for basic data collection. It’s widely used for surveys and internal workflows, especially within the Google ecosystem. However, it has limitations when it comes to customization, advanced workflows, and developer flexibility. LP Forms provides a modern form-building experience with <b>greater flexibility, customization, and scalability.</b>
     </template>
   </ComparisonPage>
 </template>
@@ -26,7 +26,7 @@ definePageMeta({
 })
 
 useOpnSeoMeta({
-  title: "OpnForm vs Google Forms",
+  title: "LP Forms vs Google Forms",
   description:
     "A powerful Google Forms alternative with unlimited responses and full control — for free.",
 })
