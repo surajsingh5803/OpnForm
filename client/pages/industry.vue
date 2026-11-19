@@ -34,7 +34,7 @@
               class="mt-4 text-lg sm:text-xl leading-7 tracking-[-1.5%] sm:leading-8 font-normal text-gray-600"
             >
               Streamline client onboarding, compliance checks, and data
-              collection with OpnForm — the open-source form builder built for
+              collection with LP Forms — the open-source form builder built for
               financial institutions that need flexibility, security, and
               control.
             </p>
@@ -85,7 +85,7 @@
           >
             How financial teams
             <br class="hidden sm:block" />
-            use OpnForm
+            use LP Forms
           </h2>
           <p
             class="mt-4 text-base font-normal text-gray-600 leading-7 tracking-[-1.1%]"
@@ -140,12 +140,12 @@
             <h3
               class="my-4 text-4xl sm:text-5xl font-semibold text-white tracking-[-1%] leading-14"
             >
-              Connect OpnForm with the tools your team already uses
+              Connect LP Forms with the tools your team already uses
             </h3>
             <p
               class="text-base tracking-[-1.1%] font-medium leading-7 text-gray-400"
             >
-              OpnForm fits into your workflow — connect to tools your team
+              LP Forms fits into your workflow — connect to tools your team
               already uses.
             </p>
           </div>
@@ -184,7 +184,7 @@
           <h2
             class="text-3xl sm:text-5xl sm:leading-14 font-semibold text-gray-950 tracking-[-1%]"
           >
-            How OpnForm improves
+            How LP Forms improves
             <br />
             financial processes
           </h2>
