@@ -206,7 +206,7 @@
           <div
             class="text-sm leading-5 tracking-[0.6%] font-medium text-neutral-600 sm:text-right lg:mt-8 lg:text-left"
           >
-            {{ currYear }} LP Forms — All rights reserved
+            © {{ currYear }} LP Forms contributors · Modified AGPL-3.0 core · Original copyright © 2025 OpnForm
             <span v-if="version" class="block mt-1">
               Version {{ version }}
             </span>
@@ -331,6 +331,7 @@ const linkGroups = computed(() => [
       { label: "Self-hosting", href: opnformConfig.links.self_hosting },
       { label: "Documentation", href: opnformConfig.links.tech_docs },
       { label: "GitHub", href: opnformConfig.links.github_url },
+      { label: "Open-source licence & source", to: { name: "open-source" } },
     ],
   },
   {
