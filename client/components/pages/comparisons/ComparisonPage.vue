@@ -10,7 +10,7 @@
               >
                 <img
                   src="/img/logo.svg"
-                  alt="OpnForm"
+                  alt="LP Forms"
                   class="h-9 w-9 filter-[sepia(1)_brightness(2)_saturate(0)]"
                 />
               </div>
@@ -78,7 +78,7 @@
             <p
               class="mt-4 text-base tracking-[-1.1%] font-medium leading-8 text-gray-600"
             >
-              Compare OpnForm and {{ competitorName }} using the same form
+              Compare LP Forms and {{ competitorName }} using the same form
               experience —
               <br class="hidden sm:block" />
               no screenshots, no assumptions.
@@ -127,9 +127,9 @@
               <div class="divide-y divide-gray-100">
                 <div class="flex items-start justify-between gap-4 px-5 py-4">
                   <div class="flex min-w-0 items-center gap-2">
-                    <img src="/img/logo.svg" alt="OpnForm" class="h-6 w-6 shrink-0" />
+                    <img src="/img/logo.svg" alt="LP Forms" class="h-6 w-6 shrink-0" />
                     <span class="text-sm font-semibold leading-5 text-gray-950">
-                      OpnForm
+                      LP Forms
                     </span>
                   </div>
                   <div class="flex justify-end text-right text-sm font-medium leading-5 text-gray-700">
@@ -197,9 +197,9 @@
                 class="rounded-[24px] pb-8 border-2 border-blue-500 bg-white shadow-sm overflow-hidden"
               >
                 <div class="h-20 px-6 flex items-center justify-center gap-2">
-                  <img src="/img/logo.svg" alt="OpnForm" class="h-9 w-9" />
+                  <img src="/img/logo.svg" alt="LP Forms" class="h-9 w-9" />
                   <div class="text-lg font-semibold text-gray-950">
-                    OpnForm
+                    LP Forms
                     <span
                       class="ml-3 text-gray-600 text-base leading-8 tracking-[-1.1%] font-medium"
                       >({{ opnformPlanLabel }})</span
@@ -293,7 +293,7 @@
           <p
             class="mt-4 text-base tracking-[-1.1%] font-medium leading-8 text-gray-600"
           >
-            {{ competitorName }} is beautiful — but OpnForm is powerful, open,
+            {{ competitorName }} is beautiful — but LP Forms is powerful, open,
             and free.
           </p>
         </div>
@@ -353,9 +353,9 @@
               <div class="divide-y divide-gray-100">
                 <div class="flex items-start justify-between gap-4 px-5 py-4">
                   <div class="flex min-w-0 items-center gap-2">
-                    <img src="/img/logo.svg" alt="OpnForm" class="h-6 w-6 shrink-0" />
+                    <img src="/img/logo.svg" alt="LP Forms" class="h-6 w-6 shrink-0" />
                     <span class="text-sm font-semibold leading-5 text-gray-950">
-                      OpnForm
+                      LP Forms
                     </span>
                   </div>
                   <div class="flex justify-end text-right text-sm font-medium leading-5 text-gray-700">
@@ -420,9 +420,9 @@
                     <div
                       class="flex items-center justify-center flex-col sm:flex-row gap-3"
                     >
-                      <img src="/img/logo.svg" alt="OpnForm" class="h-8 w-8" />
+                      <img src="/img/logo.svg" alt="LP Forms" class="h-8 w-8" />
                       <span class="text-lg font-semibold text-gray-950"
-                        >OpnForm</span
+                        >LP Forms</span
                       >
                     </div>
                   </th>
@@ -560,7 +560,7 @@
             class="rounded-3xl border border-gray-200 bg-gray-50 p-8 text-center"
           >
             <div class="text-2xl leading-8 font-medium text-gray-950">
-              OpnForm
+              LP Forms
             </div>
             <div
               class="mt-4 text-4xl sm:text-[56px] sm:leading-16 font-medium tracking-[-1%] text-gray-950"
@@ -586,7 +586,7 @@
         <div
           class="mt-6 text-center text-xl font-medium leading-7 text-gray-950"
         >
-          You save {{ formatCurrency(monthlySavings) }} per month with OpnForm
+          You save {{ formatCurrency(monthlySavings) }} per month with LP Forms
         </div>
       </div>
     </section>
@@ -604,7 +604,7 @@
           <p
             class="mt-4 text-base tracking-[-1.1%] font-medium leading-8 text-gray-600"
           >
-            Connect OpnForm to your favorite tools in seconds.
+            Connect LP Forms to your favorite tools in seconds.
           </p>
           <p
             class="mt-4 text-base tracking-[-1.1%] font-medium leading-8 text-gray-600"
@@ -756,7 +756,7 @@ const props = defineProps({
   featureSectionSubtitle: {
     type: String,
     default:
-      "OpnForm gives you the same polished experience — but open, customizable, and accessible to everyone.",
+      "LP Forms gives you the same polished experience — but open, customizable, and accessible to everyone.",
   },
   freePlanComparison: {
     type: Array,
@@ -779,13 +779,13 @@ const props = defineProps({
 const { isAuthenticated: authenticated } = useIsAuthenticated()
 
 const switchSectionTitle = computed(
-  () => `Why Users Switch from ${props.competitorName} to OpnForm`,
+  () => `Why Users Switch from ${props.competitorName} to LP Forms`,
 )
 
 const resolvedPlanComparisonTitle = computed(
   () =>
     props.planComparisonTitle ??
-    `Free Plan Comparison:\nOpnForm vs ${props.competitorName}`,
+    `Free Plan Comparison:\nLP Forms vs ${props.competitorName}`,
 )
 
 const resolvedPlanComparisonTitleLines = computed(() =>
@@ -795,7 +795,7 @@ const resolvedPlanComparisonTitleLines = computed(() =>
 const resolvedPlanComparisonSubtitle = computed(
   () =>
     props.planComparisonSubtitle ??
-    `With OpnForm, you get everything ${props.competitorName} offers — and more — without limits.`,
+    `With LP Forms, you get everything ${props.competitorName} offers — and more — without limits.`,
 )
 
 const resolvedHeroSecondaryCtaLabel = computed(
@@ -838,7 +838,7 @@ const privacyFeatures = [
     icon: "i-heroicons-code-bracket-square",
     title: "Open Source",
     description:
-      "Self-host OpnForm or use our managed service — your data always belongs to you.",
+      "Self-host LP Forms or use our managed service — your data always belongs to you.",
   },
   {
     icon: "i-heroicons-globe-europe-africa",
