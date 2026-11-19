@@ -116,7 +116,7 @@
               <p
                 class="my-4 text-base font-normal text-gray-600 leading-7 tracking-[-1.1%]"
               >
-                OpnForm is fully open-source and built for privacy-first
+                LP Forms is fully open-source and built for privacy-first
                 organizations.
               </p>
               <p
@@ -155,7 +155,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Self-host OpnForm
+                  Self-host LP Forms
                   <UIcon
                     name="i-heroicons-arrow-up-right-20-solid"
                     class="h-5 w-5"
