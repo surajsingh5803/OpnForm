@@ -35,3 +35,12 @@
 - [Fork source branch](https://github.com/surajsingh5803/OpnForm/tree/feat/lp-forms-phase1-foundation).
 
 **Commercial decision:** Offering paid setup, maintenance or hosted access to AGPL-covered software can be possible under its terms, but LP Forms is **not yet compliant-by-inspection**, and a source-link/footer-only fix cannot settle the Enterprise rights. No proprietary restrictions should be bypassed to launch more quickly.
+
+## Independent governance prototype (19 November 2026)
+
+Development work is proposed in a **separate review branch**, not a customer deployment:
+- An LP Forms-owned, default-off activity-history backend with administrative read access and no Enterprise namespace imports.
+- Self-hosted community seat enforcement is unchanged; no >2-user unlock.
+- No SAML/LDAP activation or modification of proprietary modules.
+- Refer to [INDEPENDENT-GOVERNANCE.md](INDEPENDENT-GOVERNANCE.md) for full scope and testing/release gates.
+- Correct the API package metadata to reflect the root AGPL core licence rather than advertising the whole project as MIT; the proprietary Enterprise carve-out remains governed by its own file.

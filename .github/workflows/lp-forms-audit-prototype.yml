@@ -1,0 +1,70 @@
+name: LP Forms independent governance prototype
+
+on:
+  push:
+    branches:
+      - feat/lp-forms-independent-governance-foundation
+    paths:
+      - api/app/Http/Controllers/LpForms/**
+      - api/app/Models/LpForms/**
+      - api/app/Service/LpForms/**
+      - api/database/migrations/2026_11_19_120000_create_lp_forms_workspace_audit_events_table.php
+      - api/config/lpforms.php
+      - api/tests/Feature/LpForms/**
+      - api/routes/api.php
+      - api/app/Http/Controllers/WorkspaceController.php
+      - api/app/Http/Controllers/WorkspaceUserController.php
+      - api/app/Http/Controllers/Forms/FormController.php
+      - api/composer.json
+      - .github/workflows/lp-forms-audit-prototype.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  syntax-and-licence-guards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+      - name: PHP syntax checks
+        run: |
+          for file in \
+            api/app/Http/Controllers/LpForms/WorkspaceAuditController.php \
+            api/app/Models/LpForms/WorkspaceAuditEvent.php \
+            api/app/Service/LpForms/WorkspaceAuditTrail.php \
+            api/database/migrations/2026_11_19_120000_create_lp_forms_workspace_audit_events_table.php \
+            api/config/lpforms.php \
+            api/tests/Feature/LpForms/WorkspaceAuditTrailTest.php \
+            api/routes/api.php \
+            api/app/Http/Controllers/WorkspaceController.php \
+            api/app/Http/Controllers/WorkspaceUserController.php \
+            api/app/Http/Controllers/Forms/FormController.php
+          do
+            php -l "$file" || exit 1
+          done
+      - name: Verify vendor rights safeguards are untouched
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json
+          root = Path('.')
+          assert 'FREE_SEAT_LIMIT = 2' in (root / 'api/app/Service/License/SelfHostedSeatLimitService.php').read_text()
+          assert 'Enterprise license' in (root / 'api/app/Enterprise/LICENSE').read_text()
+          assert 'GNU AFFERO GENERAL PUBLIC LICENSE' in (root / 'LICENSE').read_text()
+          assert json.loads((root / 'api/composer.json').read_text())['license'] == 'AGPL-3.0-only'
+          config = (root / 'api/config/lpforms.php').read_text()
+          assert "env('LP_FORMS_AUDIT_ENABLED', false)" in config
+          assert 'checkLicense()->isActive()' in (root / 'api/app/Service/LpForms/WorkspaceAuditTrail.php').read_text()
+          for file in (
+              'api/app/Service/LpForms/WorkspaceAuditTrail.php',
+              'api/app/Http/Controllers/LpForms/WorkspaceAuditController.php',
+              'api/app/Models/LpForms/WorkspaceAuditEvent.php',
+          ):
+              assert 'App\\Enterprise\\' not in (root / file).read_text()
+          print('PASS: core licence notices, member limit, default-off flag and independent imports verified')
+          PY

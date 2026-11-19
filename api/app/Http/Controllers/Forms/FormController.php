@@ -145,6 +145,8 @@ class FormController extends Controller
 
         $created = $this->formCreation->create($request->validated(), $request->user(), $workspace);
         $form = $created['form'];
+        app(\App\Service\LpForms\WorkspaceAuditTrail::class)
+            ->record($workspace, $request->user(), 'form.created', 'form', $form->id);
 
         if ($created['has_cleaned']) {
             $formStatus = $form->workspace->is_trialing ? 'Non-trial' : 'Pro';
@@ -166,6 +168,8 @@ class FormController extends Controller
 
         $updated = $this->formUpdate->update($form, $request->validated());
         $form = $updated['form'];
+        app(\App\Service\LpForms\WorkspaceAuditTrail::class)
+            ->record($form->workspace, $request->user(), 'form.updated', 'form', $form->id);
 
         if ($updated['has_cleaned']) {
             $requiredUpgrade = collect($updated['cleaning_keys'])
@@ -203,6 +207,8 @@ class FormController extends Controller
         $this->authorize('delete', $form);
 
         $form->delete();
+        app(\App\Service\LpForms\WorkspaceAuditTrail::class)
+            ->record($form->workspace, auth()->user(), 'form.deleted', 'form', $form->id);
 
         return $this->success([
             'message' => 'Form was deleted.',
