@@ -181,6 +181,7 @@ Route::group(['middleware' => 'auth.multi'], function () {
             Route::post('/create', [WorkspaceController::class, 'create'])->name('create');
 
             Route::prefix('/{workspace}')->group(function () {
+                Route::get('/audit-events', \App\Http\Controllers\LpForms\WorkspaceAuditController::class)->name('audit-events.index');
                 Route::get(
                     '/users',
                     [WorkspaceUserController::class, 'listUsers']

@@ -57,6 +57,8 @@ class WorkspaceUserController extends Controller
         $workspace->flushWithOwners();
         $user->flush();
         WorkspaceUsersUpdated::dispatch($workspace);
+        app(\App\Service\LpForms\WorkspaceAuditTrail::class)
+            ->record($workspace, $request->user(), 'member.added', 'user', $user->id);
 
         return $this->success([
             'message' => 'User has been successfully added to workspace.'
@@ -83,6 +85,8 @@ class WorkspaceUserController extends Controller
 
         // Send new invite
         $invite = UserInvite::inviteUser($email, $role, $workspace, now()->addDays(7));
+        app(\App\Service\LpForms\WorkspaceAuditTrail::class)
+            ->record($workspace, auth()->user(), 'invite.created', 'invite', $invite->id);
 
         return $this->success([
             'message' => 'Registration invitation email sent to user.',
@@ -110,6 +114,8 @@ class WorkspaceUserController extends Controller
         });
         $workspace->flushWithOwners();
         $user->flush();
+        app(\App\Service\LpForms\WorkspaceAuditTrail::class)
+            ->record($workspace, $request->user(), 'member.role_updated', 'user', $user->id);
 
         return $this->success([
             'message' => 'User role changed successfully.'
@@ -128,6 +134,8 @@ class WorkspaceUserController extends Controller
         $user->flush();
         $this->ensureUserHasWorkspace($user);
         WorkspaceUsersUpdated::dispatch($workspace);
+        app(\App\Service\LpForms\WorkspaceAuditTrail::class)
+            ->record($workspace, $request->user(), 'member.removed', 'user', $user->id);
 
         return $this->success([
             'message' => 'User removed from workspace successfully.'
@@ -143,6 +151,8 @@ class WorkspaceUserController extends Controller
         $workspace->flushWithOwners();
         $user->flush();
         $this->ensureUserHasWorkspace($user);
+        app(\App\Service\LpForms\WorkspaceAuditTrail::class)
+            ->record($workspace, $user, 'member.left', 'user', $user->id);
 
         return $this->success([
             'message' => 'You have left the workspace successfully.'

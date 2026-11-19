@@ -127,6 +127,8 @@ class WorkspaceController extends Controller
 
         $id = $workspace->id;
         $workspace->delete();
+        app(\App\Service\LpForms\WorkspaceAuditTrail::class)
+            ->record($workspace, Auth::user(), 'workspace.deleted', 'workspace', $id);
 
         return $this->success([
             'message' => 'Workspace successfully deleted.',
@@ -158,6 +160,8 @@ class WorkspaceController extends Controller
         ]);
 
         $workspace->refresh();
+        app(\App\Service\LpForms\WorkspaceAuditTrail::class)
+            ->record($workspace, $user, 'workspace.created', 'workspace', $workspace->id);
 
         return $this->success([
             'message' => 'Workspace created.',
@@ -178,6 +182,8 @@ class WorkspaceController extends Controller
             'name' => $request->name,
             'icon' => $request->emoji ?? '',
         ]);
+        app(\App\Service\LpForms\WorkspaceAuditTrail::class)
+            ->record($workspace, $request->user(), 'workspace.updated', 'workspace', $workspace->id);
 
         return $this->success([
             'message' => 'Workspace updated.',
