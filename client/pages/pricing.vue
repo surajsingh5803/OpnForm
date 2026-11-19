@@ -537,7 +537,7 @@
             Nonprofit & Student Discount — 50%
           </p>
           <p class="mt-1 text-base font-medium leading-7 text-yellow-600">
-            Whether your nonprofit is large or small, OpnForm's online Form
+            Whether your nonprofit is large or small, LP Forms's online Form
             Builder helps your organization help others. It takes just a few
             minutes to create and publish your forms online. As an exclusive
             benefit, we offer nonprofits & students a 50-percent discount!
@@ -564,7 +564,7 @@
           <h2
             class="text-4xl sm:text-5xl sm:leading-14 tracking-[-1%] font-semibold text-gray-950"
           >
-            Self-host OpnForm
+            Self-host LP Forms
           </h2>
           <p
             class="mt-4 text-base font-normal tracking-[-1.1%] leading-7 text-gray-600"
@@ -750,7 +750,7 @@ definePageMeta({
 useOpnSeoMeta({
   title: "Pricing",
   description:
-    "All of our core features are free, and there is no quantity limit. You can also created more advanced and customized forms with OpnForms Pro.",
+    "All of our core features are free, and there is no quantity limit. You can also created more advanced and customized forms with LP Forms Pro.",
 })
 
 const { openSubscriptionModal } = useAppModals()
@@ -870,14 +870,14 @@ const faqs = [
       "Yes — basic integrations like webhooks and API access are available on the Free plan. Some advanced integrations are available on higher tiers.",
   },
   {
-    question: "Can I hide the OpnForm branding?",
+    question: "Can I hide the LP Forms branding?",
     answer:
-      "Yes. You can remove the “Made with OpnForm” footer and add your own branding on the Pro plan or higher.",
+      "Yes. You can remove the “Made with LP Forms” footer and add your own branding on the Pro plan or higher.",
   },
   {
     question: "Can I customize my form's SEO and link preview?",
     answer:
-      "Yes. Pro and higher plans include a custom page title, description, link preview image, and favicon. These settings work on both OpnForm URLs and custom domains.",
+      "Yes. Pro and higher plans include a custom page title, description, link preview image, and favicon. These settings work on both LP Forms URLs and custom domains.",
   },
   {
     question: "Is there a difference between monthly and yearly billing?",
@@ -910,9 +910,9 @@ const faqs = [
       "If something isn’t working as expected, reach out and we’ll do our best to help. Refunds are handled case-by-case.",
   },
   {
-    question: "What’s included when I self-host OpnForm?",
+    question: "What’s included when I self-host LP Forms?",
     answer:
-      "Self-hosting includes the core OpnForm app and lets you run it on your own infrastructure. Some hosted-only services (like managed billing) may not apply.",
+      "Self-hosting includes the core LP Forms app and lets you run it on your own infrastructure. Some hosted-only services (like managed billing) may not apply.",
   },
   {
     question: "Do you offer a free trial of paid features?",
@@ -922,7 +922,7 @@ const faqs = [
   {
     question: "Is there an API, and is it free?",
     answer:
-      "Yes — OpnForm has an API and API access tokens. They’re available on the Free plan, with higher tiers unlocking more advanced capabilities.",
+      "Yes — LP Forms has an API and API access tokens. They’re available on the Free plan, with higher tiers unlocking more advanced capabilities.",
   },
   {
     question: "Can I collaborate with my team?",
