@@ -33,7 +33,7 @@
               name="i-heroicons-link-20-solid"
               class="h-4 w-4 shrink-0 text-neutral-300"
             />
-            <span class="truncate">opnform.com</span>
+            <span class="truncate">lp-forms-web.onrender.com</span>
           </div>
 
           <div class="hidden items-center gap-2 text-neutral-300 sm:absolute sm:right-5 sm:flex">
