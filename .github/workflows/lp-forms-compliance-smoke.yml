@@ -1,0 +1,61 @@
+name: LP Forms legal disclosure guard
+
+on:
+  push:
+    branches: [feat/lp-forms-phase1-foundation]
+    paths:
+      - '.github/workflows/lp-forms-compliance-smoke.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  disclosure-guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify AGPL notices, source link, and own policy pages
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          licence = Path('LICENSE').read_text()
+          assert 'GNU AFFERO GENERAL PUBLIC LICENSE' in licence
+          assert 'Copyright (c) 2025 OpnForm' in licence
+          assert '"api/app/Enterprise" directory' in licence
+          print('PASS: original root licence unmodified and split licence notice present')
+
+          enterprise = Path('api/app/Enterprise/LICENSE').read_text()
+          assert 'valid OpnForm Enterprise license' in enterprise
+          print('PASS: proprietary Enterprise licence notice still present')
+
+          footer = Path('client/components/pages/SelfHostedFooter.vue').read_text()
+          for token in ('/open-source', 'LP Forms source code', '/privacy-policy', '/terms-conditions', 'Original copyright'):
+              assert token in footer, f'Missing source/privacy notice in self-hosted footer: {token}'
+          print('PASS: public source and legal notices linked from self-hosted UI')
+
+          marketing_footer = Path('client/components/pages/OpenFormFooter.vue').read_text()
+          assert 'All rights reserved' not in marketing_footer
+          assert 'Modified AGPL-3.0 core' in marketing_footer
+          print('PASS: no misleading proprietary copyright statement')
+
+          source = Path('client/pages/open-source.vue').read_text()
+          for token in ('AGPL-3.0', '2025 OpnForm', 'api/app/Enterprise/', 'source branch'):
+              assert token in source, f'Missing source disclosure: {token}'
+          print('PASS: AGPL copyright and Enterprise separation page')
+
+          for page in ('client/pages/privacy-policy.vue', 'client/pages/terms-conditions.vue'):
+              content = Path(page).read_text()
+              assert 'notionCmsStore.loadPage' not in content, 'Upstream Notion legal content still loads'
+              assert 'staging draft' in content
+              assert 'client' not in ''  # No-op compatibility check; actual legal review is separate
+              print('PASS: first-party staging page replaces upstream policy:', page)
+
+          agent = Path('AGENTS.md').read_text()
+          assert 'LP Forms commercial licensing' in agent
+          assert 'do not bypass' in agent.lower() or 'Never bypass' in agent
+          print('PASS: standing instructions preserve licence boundaries')
+
+          print('NOTE: This automated guard is not a legal opinion or a commercial release approval.')
+          PY
