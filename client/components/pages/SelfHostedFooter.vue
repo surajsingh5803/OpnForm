@@ -7,10 +7,12 @@
     </a>
     <nav aria-label="Instance resources" class="flex flex-wrap justify-center gap-x-5 gap-y-2">
       
-      <a href="https://github.com/surajsingh5803/OpnForm" target="_blank" rel="noopener noreferrer" class="hover:text-highlighted">Source &amp; licences</a>
-      <a v-if="privacyPolicyUrl" :href="privacyPolicyUrl" class="hover:text-highlighted">Privacy policy</a>
-      <a v-if="termsUrl" :href="termsUrl" class="hover:text-highlighted">Terms</a>
+      <a href="https://github.com/surajsingh5803/OpnForm/tree/feat/lp-forms-phase1-foundation" target="_blank" rel="noopener noreferrer" class="hover:text-highlighted">LP Forms source code</a>
+      <NuxtLink to="/open-source" class="hover:text-highlighted">AGPL-3.0 &amp; attribution</NuxtLink>
+      <a :href="privacyPolicyUrl || '/privacy-policy'" class="hover:text-highlighted">Privacy notice</a>
+      <a :href="termsUrl || '/terms-conditions'" class="hover:text-highlighted">Terms</a>
     </nav>
+    <p class="text-xs text-muted">Modified AGPL-3.0 core. Original copyright © 2025 OpnForm. No warranty under the open-source licence; separate proprietary Enterprise modules are not AGPL.</p>
   </footer>
 </template>
 
