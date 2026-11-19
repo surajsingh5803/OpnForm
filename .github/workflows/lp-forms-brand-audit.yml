@@ -15,12 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Find brand references in user-facing source
+      - name: Audit remaining user-facing OpnForm text without altering behaviour
         shell: bash
         run: |
-          echo "=== Client Vue/HTML branding references (filename and line) ==="
-          grep -RinE --include='*.vue' 'OpnForm' client | head -n 500 || true
-          echo "=== English language catalog ==="
-          grep -inE 'OpnForm' client/lang/en.json || true
-          echo "=== Email messages and notifications ==="
-          grep -RinE --include='*.php' 'OpnForm' api/resources/views/mail api/app/Mail api/app/Notifications | head -n 250 || true
+          echo "=== UI Vue brand strings ==="
+          grep -RinF --include='*.vue' 'OpnForm' client/pages client/components client/layouts | head -n 320 || true
+          echo "=== UI JavaScript/TypeScript/data brand strings ==="
+          grep -RinF --include='*.js' --include='*.ts' --include='*.json' 'OpnForm' client/data client/composables client/lib client/lang | head -n 260 || true
+          echo "=== public page metadata and HTML brand strings ==="
+          grep -RinF --include='*.vue' --include='*.html' --include='*.js' 'OpnForm' client/app.vue client/pages client/components/pages client/public | head -n 320 || true
+          echo "=== API templates and user notifications ==="
+          grep -RinF --include='*.php' 'OpnForm' api/resources/views api/app/Mail api/app/Notifications | head -n 250 || true
