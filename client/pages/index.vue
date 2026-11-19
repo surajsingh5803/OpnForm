@@ -27,7 +27,7 @@
           <p
             class="text-lg sm:text-xl leading-7 tracking-[-1.5%] sm:leading-8 font-normal text-gray-600"
           >
-            OpnForm helps you create forms, surveys, and workflows fast, without
+            LP Forms helps you create forms, surveys, and workflows fast, without
             response caps or platform lock-in. Use our cloud, EU hosting, or
             self-host when you need full ownership.
           </p>
@@ -94,7 +94,7 @@
 
               <NuxtLink
                 to="https://www.trustpilot.com/review/opnform.com"
-                aria-label="Read OpnForm reviews on Trustpilot"
+                aria-label="Read LP Forms reviews on Trustpilot"
                 target="_blank"
                 class="flex items-center gap-2"
               >
@@ -190,7 +190,7 @@ useOpnSeoMeta({
   title: () => isSelfHosted.value ? `${instanceName} workspace` : "Free Online Form Builder with Unlimited Responses",
   description: () => isSelfHosted.value
     ? 'Sign in to your self-hosted form workspace.'
-    : "Build beautiful online forms with OpnForm. Create forms, surveys, and workflows for free, collect unlimited responses, and keep control of your data.",
+    : "Build beautiful online forms with LP Forms. Create forms, surveys, and workflows for free, collect unlimited responses, and keep control of your data.",
   robots: () => isSelfHosted.value ? 'noindex, nofollow' : null,
 })
 </script>
