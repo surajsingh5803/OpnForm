@@ -9,14 +9,13 @@
       
       <a href="https://github.com/surajsingh5803/OpnForm/tree/feat/lp-forms-phase1-foundation" target="_blank" rel="noopener noreferrer" class="hover:text-highlighted">LP Forms source code</a>
       <NuxtLink to="/open-source" class="hover:text-highlighted">AGPL-3.0 &amp; attribution</NuxtLink>
-      <a :href="privacyPolicyUrl || '/privacy-policy'" class="hover:text-highlighted">Privacy notice</a>
-      <a :href="termsUrl || '/terms-conditions'" class="hover:text-highlighted">Terms</a>
+      <NuxtLink to="/privacy-policy" class="hover:text-highlighted">Privacy notice</NuxtLink>
+      <NuxtLink to="/terms-conditions" class="hover:text-highlighted">Terms</NuxtLink>
     </nav>
     <p class="text-xs text-muted">Modified AGPL-3.0 core. Original copyright © 2025 OpnForm. No warranty under the open-source licence; separate proprietary Enterprise modules are not AGPL.</p>
   </footer>
 </template>
 
 <script setup>
-const { privacyPolicyUrl, termsUrl } = useSelfHostedPresentation()
 const cloudUrl = '/'
 </script>
