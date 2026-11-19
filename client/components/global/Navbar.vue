@@ -7,10 +7,10 @@
             :to="{ name: user ? 'home' : 'index' }"
             class="shrink-0 font-semibold hover:no-underline flex items-center"
           >
-            <img :src="isSelfHosted ? instanceLogoUrl : '/img/logo.svg'" :alt="isSelfHosted ? instanceName : 'OpnForm'" class="w-6 h-6 object-contain" />
+            <img :src="isSelfHosted ? instanceLogoUrl : '/img/logo.svg'" :alt="isSelfHosted ? instanceName : 'LP Forms'" class="w-6 h-6 object-contain" />
             <span
               class="ml-2 max-w-48 truncate text-md hidden sm:inline text-gray-950 dark:text-white"
-              >{{ isSelfHosted ? instanceName : 'OpnForm' }}</span
+              >{{ isSelfHosted ? instanceName : 'LP Forms' }}</span
             >
           </NuxtLink>
           <WorkspaceDropdown v-if="user" class="ml-6">
@@ -89,6 +89,7 @@
           </NuxtLink>
 
           <NuxtLink
+            v-if="!isSelfHosted"
             :href="opnformConfig.links.tech_docs"
             :class="navLinkClasses"
             target="_blank"

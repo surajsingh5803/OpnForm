@@ -17,7 +17,7 @@
           <h1
             class="text-4xl sm:text-5xl lg:text-6xl font-semibold text-neutral-900 tracking-tight"
           >
-            Say goodbye to tedious form building with OpnForm's new
+            Say goodbye to tedious form building with LP Forms's new
             <span
               class="bg-clip-text text-transparent bg-gradient-to-r lg:block from-blue-600 to-blue-400"
             >AI-powered feature!</span>
@@ -44,6 +44,7 @@
                           class="-m-2 rounded-xl bg-blue-900/5 p-2 backdrop-blur-xs ring ring-inset ring-blue-900/10 lg:-m-4 lg:rounded-2xl lg:p-4"
           >
             <video
+              v-if="!useFeatureFlag('self_hosted')"
                               class="rounded-sm ring ring-neutral-200 shadow-xl shadow-blue-600/10 ring-blue-900/10"
               controls
               autoplay
@@ -57,6 +58,7 @@
 
               This browser does not display the video tag.
             </video>
+            <img v-else src="/img/lp-forms-social.svg" class="w-full rounded-sm" alt="LP Forms" />
           </div>
         </div>
 
@@ -170,7 +172,7 @@
               <p
                 class="text-base font-medium leading-7 sm:text-lg sm:leading-8 text-neutral-500 mt-4"
               >
-                OpnForm's easy-to-use online form creator lets you create a
+                LP Forms's easy-to-use online form creator lets you create a
                 beautiful web form in no time. Whether you need to create
                 contact forms and registration forms for a landing page or an
                 online order form for your business, you will no longer need to
@@ -209,7 +211,7 @@
                 class="text-base font-medium leading-7 sm:text-lg sm:leading-8 text-neutral-500 mt-4"
               >
                 Did you know that good-looking forms are more likely to convert
-                more responses than ordinary ones? On OpnForm, you can customize
+                more responses than ordinary ones? On LP Forms, you can customize
                 your form design to the tiniest detail and match your brand
                 image with your forms.
               </p>
@@ -340,7 +342,7 @@
     <!--&lt;!&ndash;              Ready to level-up?&ndash;&gt;-->
     <!--&lt;!&ndash;            </h4>&ndash;&gt;-->
     <!--&lt;!&ndash;            <p class="mt-4 text-base leading-7 sm:text-xl sm:leading-9 font-medium text-neutral-500">&ndash;&gt;-->
-    <!--&lt;!&ndash;              Save time and effortlessly create forms with OpnForm&ndash;&gt;-->
+    <!--&lt;!&ndash;              Save time and effortlessly create forms with LP Forms&ndash;&gt;-->
     <!--&lt;!&ndash;            </p>&ndash;&gt;-->
 
     <!--&lt;!&ndash;            <div class="mt-8 flex justify-center">&ndash;&gt;-->
@@ -613,7 +615,7 @@ definePageMeta({
 useOpnSeoMeta({
   title: "Free AI form builder",
   description:
-    "Transform your ideas into fully functional forms with OpnForm AI Builder – quick, accurate, and tailored to fit any requirement.",
+    "Transform your ideas into fully functional forms with LP Forms AI Builder – quick, accurate, and tailored to fit any requirement.",
 })
 defineRouteRules({
   swr: 3600,

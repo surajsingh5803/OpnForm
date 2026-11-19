@@ -10,7 +10,7 @@
         Your checkout was canceled. No charges were made.
       </p>
       <p class="text-sm text-neutral-500">
-        You can try again from your self-hosted OpnForm instance.
+        You can try again from your self-hosted LP Forms instance.
       </p>
       <UButton
         icon="i-heroicons-chat-bubble-left-right"

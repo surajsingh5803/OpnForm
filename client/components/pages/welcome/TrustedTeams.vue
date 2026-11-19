@@ -8,7 +8,7 @@
         <p
           class="text-base mt-4 leading-7 font-normal tracking-[-1.1%] text-gray-600"
         >
-          Join thousands of companies and creators using OpnForm to collect
+          Join thousands of companies and creators using LP Forms to collect
           secure, high-quality data every day.
         </p>
       </div>

@@ -31,7 +31,7 @@ function withSlideMedia(field, media, layout = "right-split", extra = {}) {
     image: {
       url: LIVE_DEMO_MEDIA[media] || LIVE_DEMO_MEDIA.intro,
       media_key: media,
-      alt: "Abstract OpnForm live demo visual",
+      alt: "Abstract LP Forms live demo visual",
       layout,
       focal_point: { x: 50, y: 56 },
       brightness: 0,
@@ -87,7 +87,7 @@ function baseForm(key, overrides = {}) {
   return {
     id: `live-demo-${key}`,
     slug: `live-demo-${key}`,
-    title: "OpnForm Live Demo",
+    title: "LP Forms Live Demo",
     visibility: "public",
     workspace_id: null,
     properties: [],
@@ -307,14 +307,14 @@ function baseScenario(key, overrides) {
   return {
     key,
     eyebrow: "Live demo",
-    title: "Try OpnForm live",
-    description: "Answer a short sample form and see how OpnForm feels for respondents.",
-    urlLabel: "opnform.com/live-demo",
+    title: "Try LP Forms live",
+    description: "Answer a short sample form and see how LP Forms feels for respondents.",
+    urlLabel: "lp-forms-web.onrender.com/live-demo",
     highlights: ["Live form", "Conditional logic", "Personalized ending"],
     primaryCtaLabel: "Create a free form",
     secondaryCtaLabel: null,
     successTitle: "Demo complete.",
-    successBody: "You just tried a real OpnForm flow: visuals, fields, conditional logic, and a custom ending in one simple form.",
+    successBody: "You just tried a real LP Forms flow: visuals, fields, conditional logic, and a custom ending in one simple form.",
     form: baseForm(key),
     ...overrides,
   }
@@ -327,7 +327,7 @@ function buildHomeScenario() {
     properties: [
       introSlide(
         "home_intro",
-        '<span class="text-blue-500">Try OpnForm live.</span>',
+        '<span class="text-blue-500">Try LP Forms live.</span>',
         "A short demo form with prefilled answers, a rating, text fields, and conditional logic.",
         "right-split",
         "intro",
@@ -403,9 +403,9 @@ function buildHomeScenario() {
   })
 
   return baseScenario("home", {
-    title: "Try a real OpnForm live.",
+    title: "Try a real LP Forms live.",
     description: "Fill out a short demo form with prefilled text, stars, choices, and conditional logic.",
-    urlLabel: "opnform.com/live-demo",
+    urlLabel: "lp-forms-web.onrender.com/live-demo",
     highlights: ["Prefilled text", "Star rating", "Custom ending"],
     form,
   })
@@ -461,7 +461,7 @@ function comparisonForm(key, competitorName, overrides = {}) {
 
 function comparisonScenario(key, competitorName, importSource, overrides) {
   return baseScenario(`comparison-${key}`, {
-    urlLabel: `opnform.com/vs-${competitorSlug(competitorName)}`,
+    urlLabel: `lp-forms-web.onrender.com/vs-${competitorSlug(competitorName)}`,
     secondaryCtaLabel: importSource ? `Import your ${competitorName} form` : null,
     successTitle: "Demo response submitted.",
     ...overrides,
@@ -475,7 +475,7 @@ function buildTypeformScenario(importSource) {
   const properties = [
     introSlide(
       "typeform_intro",
-      '<span class="text-blue-500">Build a Typeform-style form in OpnForm.</span>',
+      '<span class="text-blue-500">Build a Typeform-style form in LP Forms.</span>',
       "Answer a few plain questions. You will see the same one-question-at-a-time feel, plus routing and unlimited responses.",
       "right-split",
       "intro",
@@ -539,7 +539,7 @@ function buildTypeformScenario(importSource) {
     withSlideMedia(
       textBlock(
         "typeform_summary",
-        `<p><strong>Your demo form</strong></p><h2><span class="text-blue-500">A Typeform-style form, built in OpnForm.</span></h2><p>${mention("typeform_name", "Name", "Jamie")} wants to collect ${mention("typeform_use_case", "Use case", "inbound leads")} and then ${mention("typeform_controls", "Follow-up actions", "send responses to a webhook")}.</p>`,
+        `<p><strong>Your demo form</strong></p><h2><span class="text-blue-500">A Typeform-style form, built in LP Forms.</span></h2><p>${mention("typeform_name", "Name", "Jamie")} wants to collect ${mention("typeform_use_case", "Use case", "inbound leads")} and then ${mention("typeform_controls", "Follow-up actions", "send responses to a webhook")}.</p>`,
       ),
       "summary",
       "right-split",
@@ -554,10 +554,10 @@ function buildTypeformScenario(importSource) {
   })
 
   return comparisonScenario("typeform", competitorName, importSource || "typeform", {
-    title: "Try a Typeform-style flow in OpnForm.",
+    title: "Try a Typeform-style flow in LP Forms.",
     description: "A simple one-question-at-a-time form with choices, routing, and a personalized ending.",
     highlights: ["Focused mode", "Plain questions", "Personalized ending"],
-    successBody: "That was a Typeform-style experience, but with OpnForm's routing and unlimited responses behind it.",
+    successBody: "That was a Typeform-style experience, but with LP Forms's routing and unlimited responses behind it.",
     form,
   })
 }
@@ -569,7 +569,7 @@ function buildGoogleFormsScenario(importSource) {
   const properties = [
     textBlock(
       "google_forms_intro",
-      "<p><strong>Live demo</strong></p><h2>Make a Google Forms-style request form feel polished.</h2><p>Answer a few simple questions. OpnForm turns them into a clean form with follow-up actions.</p>",
+      "<p><strong>Live demo</strong></p><h2>Make a Google Forms-style request form feel polished.</h2><p>Answer a few simple questions. LP Forms turns them into a clean form with follow-up actions.</p>",
     ),
     textField("google_forms_name", "Request owner", {
       width: "1/2",
@@ -627,7 +627,7 @@ function buildGoogleFormsScenario(importSource) {
     title: "Try a branded workflow beyond a basic Google Form.",
     description: "A simple request form with clear choices, follow-up actions, and a personalized ending.",
     highlights: ["Focused mode", "Clear choices", "Personalized ending"],
-    successBody: "That was a Google Forms-style request upgraded into a branded OpnForm form.",
+    successBody: "That was a Google Forms-style request upgraded into a branded LP Forms form.",
     form,
   })
 }
@@ -639,7 +639,7 @@ function buildTallyScenario(importSource) {
   const properties = [
     introSlide(
       "tally_intro",
-      '<span class="text-blue-500">Build a simple Tally-style form in OpnForm.</span>',
+      '<span class="text-blue-500">Build a simple Tally-style form in LP Forms.</span>',
       "Keep the form short. Add unlimited responses, embeds, and exports when the project grows.",
       "right-split",
       "intro",
@@ -702,7 +702,7 @@ function buildTallyScenario(importSource) {
     title: "Try a simple form with infrastructure control built in.",
     description: "A short focused form for people who want speed now and more options later.",
     highlights: ["Focused mode", "Simple choices", "Personalized ending"],
-    successBody: "That was a simple Tally-style flow with OpnForm controls ready when the project grows.",
+    successBody: "That was a simple Tally-style flow with LP Forms controls ready when the project grows.",
     form,
   })
 }
@@ -767,7 +767,7 @@ function buildJotformScenario(importSource) {
     title: "Try a scalable intake form.",
     description: "A focused client intake with multi-select workflow needs, sliders, conditional follow-up, and a scale score.",
     highlights: ["Focused mode", "Slider input", "Scale score"],
-    successBody: "That was a Jotform-style intake workflow rebuilt around OpnForm's scaling story.",
+    successBody: "That was a Jotform-style intake workflow rebuilt around LP Forms's scaling story.",
     form,
   })
 }
@@ -814,7 +814,7 @@ function buildFilloutScenario(importSource) {
     pageBreak("fillout_break_2", { next_btn_text: "Review setup" }),
     textBlock(
       "fillout_summary",
-      `<p><strong>Recommended setup</strong></p><h2><span class="text-blue-500">Use routing, webhooks, and exports.</span></h2><p>You chose ${mention("fillout_control_priority", "Control priority", "easy export")} and ${mention("fillout_destinations", "Destinations", "webhook and exports")}. OpnForm can collect the lead, send it to the right place, and keep the data easy to export.</p>`,
+      `<p><strong>Recommended setup</strong></p><h2><span class="text-blue-500">Use routing, webhooks, and exports.</span></h2><p>You chose ${mention("fillout_control_priority", "Control priority", "easy export")} and ${mention("fillout_destinations", "Destinations", "webhook and exports")}. LP Forms can collect the lead, send it to the right place, and keep the data easy to export.</p>`,
     ),
   ]
 
@@ -830,7 +830,7 @@ function buildFilloutScenario(importSource) {
     title: "Try a simple lead routing workflow.",
     description: "A focused workflow form showing data destinations, export needs, conditional notes, and a concrete recommended setup.",
     highlights: ["Focused mode", "Webhook routing", "Workflow match"],
-    successBody: "That was a simple lead workflow using OpnForm's routing, exports, and open-source flexibility.",
+    successBody: "That was a simple lead workflow using LP Forms's routing, exports, and open-source flexibility.",
     form,
   })
 }
@@ -920,7 +920,7 @@ function buildHeyformScenario(importSource) {
     title: "Try a conversational form with workflow depth.",
     description: "A focused HeyForm-style flow with routing logic, multi-select workflow needs, and a readiness score.",
     highlights: ["Focused mode", "Email routing", "Readiness score"],
-    successBody: "That was a HeyForm-style conversational flow with OpnForm workflow depth built in.",
+    successBody: "That was a HeyForm-style conversational flow with LP Forms workflow depth built in.",
     form,
   })
 }
@@ -994,9 +994,9 @@ function buildYouformScenario(importSource) {
 
   return comparisonScenario("youform", competitorName, importSource, {
     title: "Try a simple form that can become a platform.",
-    description: "A focused lightweight form that shows when OpnForm's logic, embeds, and ownership become useful.",
+    description: "A focused lightweight form that shows when LP Forms's logic, embeds, and ownership become useful.",
     highlights: ["Focused mode", "Multi-select", "Platform score"],
-    successBody: "That was a Youform-style simple flow with OpnForm's path to richer workflows.",
+    successBody: "That was a Youform-style simple flow with LP Forms's path to richer workflows.",
     form,
   })
 }
@@ -1008,7 +1008,7 @@ function buildFormbricksScenario(importSource) {
     introSlide(
       "formbricks_intro",
       '<span class="text-blue-500">From feedback survey to full form workflow.</span>',
-      "Formbricks is strong for feedback. This OpnForm demo shows what happens when the job expands into applications, registrations, and lead capture.",
+      "Formbricks is strong for feedback. This LP Forms demo shows what happens when the job expands into applications, registrations, and lead capture.",
       "right-split",
       "intro",
     ),
@@ -1072,9 +1072,9 @@ function buildFormbricksScenario(importSource) {
 
   return comparisonScenario("formbricks", competitorName, importSource, {
     title: "Try a general-purpose form, not just a survey.",
-    description: "A focused flow that contrasts feedback collection with broader OpnForm use cases and routing.",
+    description: "A focused flow that contrasts feedback collection with broader LP Forms use cases and routing.",
     highlights: ["Focused mode", "Use-case branching", "Workflow score"],
-    successBody: "That was an OpnForm workflow tailored to someone comparing Formbricks for more than surveys.",
+    successBody: "That was an LP Forms workflow tailored to someone comparing Formbricks for more than surveys.",
     form,
   })
 }
@@ -1141,7 +1141,7 @@ function buildFormioScenario(importSource) {
     title: "Try a focused production form without provisioning a form backend.",
     description: "A focused Form.io comparison flow for teams who want developer workflows without starting from infrastructure.",
     highlights: ["Focused mode", "Developer workflow", "Computed score"],
-    successBody: "That was a Form.io-style production intake reframed around OpnForm's no-backend setup.",
+    successBody: "That was a Form.io-style production intake reframed around LP Forms's no-backend setup.",
     form,
   })
 }
@@ -1205,7 +1205,7 @@ function build123FormBuilderScenario(importSource) {
     title: "Try a focused client request form without starter-plan ceilings.",
     description: "A focused request form with multi-select needs, response-volume slider, conditional fields, and a growth score.",
     highlights: ["Focused mode", "Conditional field", "Growth score"],
-    successBody: "That was a 123FormBuilder-style request form showing why OpnForm fits growing workflows.",
+    successBody: "That was a 123FormBuilder-style request form showing why LP Forms fits growing workflows.",
     form,
   })
 }
@@ -1217,8 +1217,8 @@ function buildComparisonScenario(competitorName, importSource) {
   const properties = [
     introSlide(
       "cmp_intro",
-      '<span class="text-blue-500">Try the OpnForm switching workflow.</span>',
-      `A short live form for people comparing ${safeName} with OpnForm.`,
+      '<span class="text-blue-500">Try the LP Forms switching workflow.</span>',
+      `A short live form for people comparing ${safeName} with LP Forms.`,
       "right-split",
       "switch",
     ),
@@ -1269,10 +1269,10 @@ function buildComparisonScenario(competitorName, importSource) {
   })
 
   return comparisonScenario(competitorSlug(safeName), safeName, importSource, {
-    title: "Try a switching workflow in OpnForm.",
-    description: `Answer a short live form for people comparing ${safeName} with OpnForm.`,
+    title: "Try a switching workflow in LP Forms.",
+    description: `Answer a short live form for people comparing ${safeName} with LP Forms.`,
     highlights: ["Focused mode", "Conditional import", "Switch score"],
-    successBody: `That was an OpnForm switching workflow tailored to someone comparing ${safeName}.`,
+    successBody: `That was an LP Forms switching workflow tailored to someone comparing ${safeName}.`,
     form,
   })
 }

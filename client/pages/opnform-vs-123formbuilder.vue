@@ -2,7 +2,7 @@
   <ComparisonPage
     competitor-name="123FormBuilder"
     competitor-icon="opnform:123formbuilder"
-    :hero-title="'OpnForm — The Open-Source 123FormBuilder Alternative'"
+    :hero-title="'LP Forms — The Open-Source 123FormBuilder Alternative'"
     competitor-plan-label="Basic"
     :free-plan-comparison="freePlanComparison"
     :switch-reasons="switchReasons"
@@ -12,7 +12,7 @@
     <template #hero-subtitle>
       Create beautiful, logic‑driven forms with <b>unlimited responses, full control, and zero limits</b> — all for free.
       <br/><br/>
-      123FormBuilder is a well‑known form builder with paid plans behind many advanced features. Its free plan comes with meaningful limitations on submissions, forms, and fields. OpnForm removes those constraints and adds open‑source flexibility, self‑hosting options, and extensibility — making it ideal for builders, teams, and developers.
+      123FormBuilder is a well‑known form builder with paid plans behind many advanced features. Its free plan comes with meaningful limitations on submissions, forms, and fields. LP Forms removes those constraints and adds open‑source flexibility, self‑hosting options, and extensibility — making it ideal for builders, teams, and developers.
     </template>
   </ComparisonPage>
 </template>
@@ -25,7 +25,7 @@ definePageMeta({
 })
 
 useOpnSeoMeta({
-  title: "OpnForm vs 123FormBuilder",
+  title: "LP Forms vs 123FormBuilder",
   description:
     "A powerful 123FormBuilder alternative with unlimited responses and full control — for free.",
 })

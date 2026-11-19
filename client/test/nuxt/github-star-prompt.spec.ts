@@ -32,7 +32,7 @@ describe('first form GitHub invitation', () => {
   it('opens for the first self-hosted form and stays dismissed after remounting', async () => {
     useGithubStarPrompt().queuePrompt({ form: { slug: 'first-form' }, users_first_form: true })
     const wrapper = mountPrompt()
-    expect(wrapper.get('a').attributes('href')).toBe('https://github.com/OpnForm/OpnForm')
+    expect(wrapper.get('a').attributes('href')).toBe('https://github.com/surajsingh5803/OpnForm')
     expect(wrapper.get('a').attributes('target')).toBe('_blank')
     await wrapper.get('button').trigger('click')
     expect(wrapper.text()).toBe('')

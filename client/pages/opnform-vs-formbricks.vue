@@ -3,7 +3,7 @@
     competitor-name="Formbricks"
     competitor-icon="i-simple-icons-formbricks"
     competitor-icon-class="text-[#00CABA]"
-    :hero-title="'OpnForm — The Open-Source Formbricks Alternative'"
+    :hero-title="'LP Forms — The Open-Source Formbricks Alternative'"
     competitor-plan-label="Hobby"
     :free-plan-comparison="freePlanComparison"
     :switch-reasons="switchReasons"
@@ -13,9 +13,9 @@
     <template #hero-subtitle>
       Create beautiful, logic‑driven forms with <b>unlimited responses, full control, and zero limits</b> — all for free.
       <br/><br/>
-      While Formbricks focuses primarily on <b>surveys and in‑app feedback, OpnForm is built as a general‑purpose form platform</b> — ideal for lead capture, registrations, applications, workflows, embedded forms, and more.
+      While Formbricks focuses primarily on <b>surveys and in‑app feedback, LP Forms is built as a general‑purpose form platform</b> — ideal for lead capture, registrations, applications, workflows, embedded forms, and more.
       <br/><br/>
-      Whether you're a creator, startup, agency, or enterprise team, OpnForm delivers a modern form‑building experience with <b>greater flexibility, extensibility, and scalability.</b>
+      Whether you're a creator, startup, agency, or enterprise team, LP Forms delivers a modern form‑building experience with <b>greater flexibility, extensibility, and scalability.</b>
     </template>
   </ComparisonPage>
 </template>
@@ -28,7 +28,7 @@ definePageMeta({
 })
 
 useOpnSeoMeta({
-  title: "OpnForm vs Formbricks",
+  title: "LP Forms vs Formbricks",
   description:
     "A powerful Formbricks alternative with unlimited responses and full control — for free.",
 })

@@ -3,7 +3,7 @@
     competitor-name="Fillout"
     competitor-icon="opnform:fillout"
     hero-import-source="fillout"
-    :hero-title="'OpnForm — The Open-Source Fillout Alternative'"
+    :hero-title="'LP Forms — The Open-Source Fillout Alternative'"
     :free-plan-comparison="freePlanComparison"
     :switch-reasons="switchReasons"
     :feature-comparison="featureComparison"
@@ -12,7 +12,7 @@
     <template #hero-subtitle>
       Create powerful, customizable forms with <b>unlimited responses, developer control, and complete data ownership</b> — without monthly caps or usage ceilings.
       <br/><br/>
-      Fillout has a modern interface and a free plan (1,000 responses/month), but OpnForm gives you <b>true unlimited submissions, open-source flexibility, and self-hosting options</b> so you can scale without constraints.
+      Fillout has a modern interface and a free plan (1,000 responses/month), but LP Forms gives you <b>true unlimited submissions, open-source flexibility, and self-hosting options</b> so you can scale without constraints.
     </template>
   </ComparisonPage>
 </template>
@@ -25,7 +25,7 @@ definePageMeta({
 })
 
 useOpnSeoMeta({
-  title: "OpnForm vs Fillout",
+  title: "LP Forms vs Fillout",
   description:
     "A powerful Fillout alternative with unlimited responses and full control — for free.",
 })

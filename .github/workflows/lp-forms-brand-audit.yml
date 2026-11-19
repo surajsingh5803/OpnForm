@@ -1,0 +1,28 @@
+name: LP Forms branding text audit
+
+on:
+  push:
+    branches: [feat/lp-forms-phase1-foundation]
+    paths:
+      - '.github/workflows/lp-forms-brand-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Audit remaining user-facing OpnForm text without altering behaviour
+        shell: bash
+        run: |
+          echo "=== UI Vue brand strings ==="
+          grep -RinF --include='*.vue' 'OpnForm' client/pages client/components client/layouts | head -n 320 || true
+          echo "=== UI JavaScript/TypeScript/data brand strings ==="
+          grep -RinF --include='*.js' --include='*.ts' --include='*.json' 'OpnForm' client/data client/composables client/lib client/lang | head -n 260 || true
+          echo "=== public page metadata and HTML brand strings ==="
+          grep -RinF --include='*.vue' --include='*.html' --include='*.js' 'OpnForm' client/app.vue client/pages client/components/pages client/public | head -n 320 || true
+          echo "=== API templates and user notifications ==="
+          grep -RinF --include='*.php' 'OpnForm' api/resources/views api/app/Mail api/app/Notifications | head -n 250 || true

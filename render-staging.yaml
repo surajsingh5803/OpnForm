@@ -1,0 +1,126 @@
+# EXPERIMENTAL: Render free services sleep, have 512 MiB RAM, and Key Value is ephemeral.
+# Do not use for real customer data or production workloads.
+# LP Forms low-cost staging Blueprint (Neon PostgreSQL supplied separately).
+# This file only describes infrastructure; a Blueprint plan requires explicit approval to deploy.
+# Paid resources are deliberately visible in the Render plan before approval.
+services:
+  - type: keyvalue
+    name: lp-forms-cache
+    plan: free
+    region: oregon
+    ipAllowList: []
+    maxmemoryPolicy: noeviction
+    persistenceMode: off
+
+  - type: web
+    name: lp-forms-api
+    runtime: docker
+    plan: free
+    healthCheckPath: /healthz
+    region: oregon
+    autoDeployTrigger: off
+    dockerContext: .
+    dockerfilePath: deploy/render/Dockerfile.api
+    dockerCommand: /usr/local/bin/serve-lp-forms-api
+    envVars:
+      - key: APP_NAME
+        value: LP Forms
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      # Public URL of the frontend. Use explicit value; RENDER_EXTERNAL_URL is not
+      # available through cross-service env references in first-time syncs.
+      - key: APP_URL
+        value: https://lp-forms-web.onrender.com
+      - key: DATABASE_URL
+        sync: false
+      # The startup script derives a stable Laravel base64 key from this random seed.
+      - key: LP_FORMS_KEY_SEED
+        generateValue: true
+      - key: FRONT_API_SECRET
+        generateValue: true
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: LOG_LEVEL
+        value: warning
+      - key: CACHE_STORE
+        value: redis
+      - key: CACHE_DRIVER
+        value: redis
+      - key: SESSION_DRIVER
+        value: redis
+      # Staging: jobs execute synchronously until a dedicated worker is deployed.
+      - key: QUEUE_CONNECTION
+        value: sync
+      - key: REDIS_URL
+        fromService:
+          type: keyvalue
+          name: lp-forms-cache
+          property: connectionString
+      - key: REDIS_STATE_URL
+        fromService:
+          type: keyvalue
+          name: lp-forms-cache
+          property: connectionString
+      - key: REDIS_AUTH_URL
+        fromService:
+          type: keyvalue
+          name: lp-forms-cache
+          property: connectionString
+      - key: REDIS_CACHE_URL
+        fromService:
+          type: keyvalue
+          name: lp-forms-cache
+          property: connectionString
+      # Staging defaults: no real emails and ephemeral uploads, not production-safe.
+      - key: MAIL_MAILER
+        value: log
+      - key: FILESYSTEM_DRIVER
+        value: local
+      - key: JWT_SKIP_IP_UA_VALIDATION
+        value: "false"
+      - key: MCP_ENABLED
+        value: "false"
+      - key: PORT
+        value: "10000"
+
+  - type: web
+    name: lp-forms-web
+    runtime: docker
+    plan: free
+    region: oregon
+    autoDeployTrigger: off
+    dockerContext: .
+    dockerfilePath: deploy/render/Dockerfile.client
+    healthCheckPath: /login
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "10000"
+      - key: NITRO_PORT
+        value: "10000"
+      - key: NITRO_HOST
+        value: 0.0.0.0
+      - key: NUXT_PUBLIC_ENV
+        value: production
+      - key: NUXT_PUBLIC_APP_URL
+        value: /
+      - key: NUXT_PUBLIC_API_BASE
+        value: /api
+      - key: NUXT_PUBLIC_SELF_HOSTED_NAME
+        value: LP Forms
+      - key: NUXT_API_SECRET
+        fromService:
+          type: web
+          name: lp-forms-api
+          envVarKey: FRONT_API_SECRET
+      # Free Render web services cannot receive private-network traffic.
+      # Use the fixed HTTPS endpoint of the separate public API web service.
+      - key: LP_FORMS_API_ORIGIN
+        value: https://lp-forms-api.onrender.com

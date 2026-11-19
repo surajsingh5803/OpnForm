@@ -1,0 +1,38 @@
+# Source-build override for LP Forms. Use together with docker-compose.yml:
+# docker compose -f docker-compose.yml -f docker-compose.lpforms.yml up -d --build
+#
+# Never use the upstream prebuilt images when verifying changes in this fork.
+services:
+  api:
+    image: lp-forms-api:local
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.api
+    environment:
+      DB_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in your shell or private root .env file}
+
+  api-worker:
+    image: lp-forms-api:local
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.api
+    environment:
+      DB_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in your shell or private root .env file}
+
+  api-scheduler:
+    image: lp-forms-api:local
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.api
+    environment:
+      DB_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in your shell or private root .env file}
+
+  ui:
+    image: lp-forms-client:local
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.client
+
+  db:
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Set DB_PASSWORD in your shell or private root .env file}

@@ -373,7 +373,7 @@ const panels = [
         iconClass: "text-blue-600",
       },
       {
-        title: "Remove OpnForm branding on paid plans",
+        title: "Remove LP Forms branding on paid plans",
         icon: "i-heroicons-no-symbol",
         iconWrapClass: "bg-blue-50 ring-blue-100",
         iconClass: "text-blue-600",
@@ -394,7 +394,7 @@ const panels = [
     eyebrowClass: "text-emerald-700",
     title: "Collect as many responses as you need, even on the free plan.",
     description:
-      "No per-response charges. No hidden quotas. No unexpected overages. OpnForm grows with your team.",
+      "No per-response charges. No hidden quotas. No unexpected overages. LP Forms grows with your team.",
     items: [
       {
         title: "Unlimited submissions",
@@ -422,7 +422,7 @@ const panels = [
   {
     eyebrow: "Integrations & Automation",
     eyebrowClass: "text-violet-700",
-    title: "Connect OpnForm to the tools you already use.",
+    title: "Connect LP Forms to the tools you already use.",
     description:
       "Automate your workflows with native integrations or connect anything with webhooks and our public API.",
     items: [

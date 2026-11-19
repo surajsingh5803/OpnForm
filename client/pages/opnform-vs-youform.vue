@@ -2,7 +2,7 @@
   <ComparisonPage
     competitor-name="Youform"
     competitor-icon="opnform:youform"
-    :hero-title="'OpnForm — The Open-Source Youform Alternative'"
+    :hero-title="'LP Forms — The Open-Source Youform Alternative'"
     :free-plan-comparison="freePlanComparison"
     :switch-reasons="switchReasons"
     :feature-comparison="featureComparison"
@@ -10,7 +10,7 @@
     <template #hero-subtitle>
       Create powerful, customizable forms with <b>unlimited responses, deep logic, and total control over your data</b> — all without usage caps or platform lock‑in.
       <br/><br/>
-      Youform is a modern form builder with intuitive design and free forms, but OpnForm is built as a <b>general‑purpose form platform</b> that scales from simple lead capture to complex workflows, apps, and embedded experiences — with <b>more extensibility, self‑hosting, and customization.</b>
+      Youform is a modern form builder with intuitive design and free forms, but LP Forms is built as a <b>general‑purpose form platform</b> that scales from simple lead capture to complex workflows, apps, and embedded experiences — with <b>more extensibility, self‑hosting, and customization.</b>
     </template>
   </ComparisonPage>
 </template>
@@ -23,7 +23,7 @@ definePageMeta({
 })
 
 useOpnSeoMeta({
-  title: "OpnForm vs Youform",
+  title: "LP Forms vs Youform",
   description:
     "A powerful Youform alternative with unlimited responses and full control — for free.",
 })

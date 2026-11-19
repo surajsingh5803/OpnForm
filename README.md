@@ -1,3 +1,17 @@
+# LP Forms — modified AGPL core (staging)
+
+> **Commercial-launch warning (19 November 2026):** This public fork is currently a staging build, **not approved for paid customers or sensitive client submissions**. LP Forms is an independent branded derivative of the OpnForm core; it is not the original vendor's hosted service.
+
+- **Modified source:** [LP Forms active staging branch](https://github.com/surajsingh5803/OpnForm/tree/feat/lp-forms-phase1-foundation) (do not assume the default `main` branch reflects the deployed build).
+- **Core licence and upstream copyright:** [Root LICENSE](./LICENSE). © 2025 OpnForm; LP Forms contributors made modifications beginning in November 2026. AGPL-covered modifications remain subject to AGPL-3.0 (including network source obligations).
+- **Proprietary Enterprise boundary:** Code under `api/app/Enterprise/` has [a different proprietary licence](./api/app/Enterprise/LICENSE). It is not AGPL. Its presence in this fork is **not** authorization for unlicensed production use or resale.
+- **Sale and deployment gates:** [Commercial compliance checklist](./deploy/lp-forms/COMMERCIAL-COMPLIANCE.md). Any future commercial offering requires a code and licence boundary review, verified source parity, the correct Enterprise rights if applicable, and approved client policies.
+- **No licence bypass:** The original application self-hosted seat-limit and entitlement checks must remain enforced.
+
+The original upstream README is retained below for technical reference only. Its pricing, third-party reviews, customer claims, terms and marketing links **must not** be treated as LP Forms' own commercial representations.
+
+---
+
 # OpnForm
 
 <p align="center">

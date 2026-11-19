@@ -260,14 +260,14 @@ const PLAN_DETAILS = {
   pro: {
     subtitle: 'Branding control, custom domains, SEO, analytics, notifications, and core premium form tools.',
     highlights: [
-      'Remove OpnForm branding',
+      'Remove LP Forms branding',
       'Use one custom domain',
       'Customize SEO, link previews, and favicon',
       'Unlock analytics, summaries, and premium integrations',
     ],
     summaryLine: 'Best when you need premium publishing and conversion features.',
     features: [
-      { icon: 'mdi:star-outline', title: 'Remove OpnForm branding', description: 'Publish forms without the OpnForm watermark and make the experience feel truly yours.' },
+      { icon: 'mdi:star-outline', title: 'Remove LP Forms branding', description: 'Publish forms without the LP Forms watermark and make the experience feel truly yours.' },
       { icon: 'heroicons:globe-alt', title: 'Custom domain & SEO', description: 'Publish on one custom domain with your own page title, description, link preview image, and favicon.' },
       { icon: 'heroicons:bell', title: 'Pro integrations', description: 'Send alerts to Slack, Discord, Telegram, and unlock the rest of the Pro workflow tools.' },
     ],
@@ -310,7 +310,7 @@ const PLAN_DETAILS = {
     ],
     summaryLine: 'Best when security, compliance, and centralized access control are non-negotiable.',
     features: [
-      { icon: 'heroicons:globe-alt', title: 'Remove OpnForm branding', description: 'Publish forms without the OpnForm watermark and make the experience feel truly yours.' },
+      { icon: 'heroicons:globe-alt', title: 'Remove LP Forms branding', description: 'Publish forms without the LP Forms watermark and make the experience feel truly yours.' },
       { icon: 'heroicons:shield-check', title: 'Enterprise SSO', description: 'Connect SAML or LDAP and add more than 2 users on your self-hosted instance.' },
       { icon: 'heroicons:document-text', title: 'Audit logs & compliance', description: 'Track important activity and support teams that need stronger internal controls.' },
     ],
@@ -328,7 +328,7 @@ const props = defineProps({
   },
   modal_description: {
     type: String,
-    default: 'Unlock all features and get the most out of OpnForm.'
+    default: 'Unlock all features and get the most out of LP Forms.'
   },
   plan: {
     type: String,
@@ -428,7 +428,7 @@ const modalTitle = computed(() => {
 })
 
 const modalDescription = computed(() => {
-  if (props.modal_description && props.modal_description !== 'Unlock all features and get the most out of OpnForm.') {
+  if (props.modal_description && props.modal_description !== 'Unlock all features and get the most out of LP Forms.') {
     return props.modal_description
   }
 
@@ -436,7 +436,7 @@ const modalDescription = computed(() => {
     pro: 'Remove branding, use custom domains, and unlock all Pro features.',
     business: 'Unlock the collaboration, advanced branding, and operational controls built for teams.',
     enterprise: 'Unlock enterprise-grade security, identity, and compliance controls.',
-    self_hosted: 'Unlock all features and get the most out of OpnForm.',
+    self_hosted: 'Unlock all features and get the most out of LP Forms.',
   }
 
   return descriptions[requiredPlanKey.value] || descriptions.pro

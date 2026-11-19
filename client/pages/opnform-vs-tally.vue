@@ -3,7 +3,7 @@
     competitor-name="Tally"
     competitor-icon="opnform:tally"
     hero-import-source="tally"
-    :hero-title="'OpnForm — The Open-Source Tally Alternative'"
+    :hero-title="'LP Forms — The Open-Source Tally Alternative'"
     :free-plan-comparison="freePlanComparison"
     :switch-reasons="switchReasons"
     :feature-comparison="featureComparison"
@@ -11,7 +11,7 @@
     <template #hero-subtitle>
       Create beautiful, logic‑driven forms with <b>unlimited responses, full customization, and complete control over your data.</b>
       <br/><br/>
-      Whether you're a creator, startup, agency, or enterprise team, OpnForm delivers the simplicity of modern form builders like Tally — but with <b>more flexibility, developer control, and open infrastructure.</b>
+      Whether you're a creator, startup, agency, or enterprise team, LP Forms delivers the simplicity of modern form builders like Tally — but with <b>more flexibility, developer control, and open infrastructure.</b>
     </template>
   </ComparisonPage>
 </template>
@@ -24,7 +24,7 @@ definePageMeta({
 })
 
 useOpnSeoMeta({
-  title: "OpnForm vs Tally",
+  title: "LP Forms vs Tally",
   description:
     "A powerful Tally alternative with unlimited responses and full control — for free.",
 })
@@ -80,7 +80,7 @@ const switchReasons = [
   {
     icon: "i-heroicons-circle-stack",
     title: "Open source platform",
-    description: "Extend and adapt OpnForm's codebase.",
+    description: "Extend and adapt LP Forms's codebase.",
   },
   {
     icon: "i-heroicons-server-stack",

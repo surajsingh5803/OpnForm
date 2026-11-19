@@ -12,7 +12,7 @@
             class="mt-4 text-lg sm:text-xl leading-7 tracking-[-1.5%] sm:leading-8 font-normal text-gray-600"
           >
             Create forms, surveys, and internal workflows without giving up
-            control of access, infrastructure, or submission data. Use OpnForm
+            control of access, infrastructure, or submission data. Use LP Forms
             Cloud, hosting in France, or self-hosted deployment.
           </p>
 
@@ -221,7 +221,7 @@
             :to="opnformConfig.links.tech_docs"
             target="_blank"
             variant="outline"
-            label="Learn About OpnForm Security"
+            label="Learn About LP Forms Security"
             trailing-icon="i-heroicons-arrow-right-20-solid"
             size="lg"
             class="px-4 py-2.5 rounded-[12px] text-base leading-7 tracking-[-1.1%] font-medium"
@@ -251,7 +251,7 @@
             class="text-base leading-7 tracking-[-1.1%] font-normal text-gray-600"
           >
             Start with managed cloud, keep hosted data in France, or run
-            OpnForm on your own infrastructure when policy requires it.
+            LP Forms on your own infrastructure when policy requires it.
           </p>
         </div>
 
@@ -383,7 +383,7 @@
               class="mt-4 text-base leading-7 tracking-[-1.1%] font-normal text-gray-600"
             >
               Get direct access to dedicated experts who help you deploy, scale,
-              and operate OpnForm with confidence.
+              and operate LP Forms with confidence.
             </p>
           </div>
           <div
@@ -430,7 +430,7 @@
             <p
               class="text-base tracking-[-1.1%] font-medium leading-7 text-gray-400"
             >
-              OpnForm fits into your workflow — connect to tools your team
+              LP Forms fits into your workflow — connect to tools your team
               already uses.
             </p>
           </div>
@@ -515,7 +515,7 @@
     <FaqSection
       :faqs="enterpriseFaqs"
       :title-lines="['Enterprise forms, security,', 'and deployment']"
-      description="Clear answers for teams evaluating OpnForm for secure forms, data control, and managed or self-hosted deployment."
+      description="Clear answers for teams evaluating LP Forms for secure forms, data control, and managed or self-hosted deployment."
       id-prefix="enterprise-faq-answer"
       @contact="contactUs"
     />
@@ -600,7 +600,7 @@ definePageMeta({
 useOpnSeoMeta({
   title: "Secure Form Builder for Teams and Enterprises",
       description:
-    "Build secure forms, surveys, and workflows with OpnForm Enterprise. Manage access, automate data collection, and choose cloud, France hosting, or self-hosted deployment.",
+    "Build secure forms, surveys, and workflows with LP Forms Enterprise. Manage access, automate data collection, and choose cloud, France hosting, or self-hosted deployment.",
 })
 
 const controlHighlights = [
@@ -657,7 +657,7 @@ const deploymentOptions = [
     icon: "i-heroicons-cloud",
     title: "Managed Cloud",
     description:
-      "Let OpnForm handle hosting, updates, monitoring, and backups for your team.",
+      "Let LP Forms handle hosting, updates, monitoring, and backups for your team.",
     features: ["Fastest setup", "Managed updates", "Live chat support"],
   },
   {
@@ -671,7 +671,7 @@ const deploymentOptions = [
     icon: "i-heroicons-server-stack",
     title: "Self-hosted / On-premise",
     description:
-      "Run OpnForm on your own infrastructure when policy or compliance requires it.",
+      "Run LP Forms on your own infrastructure when policy or compliance requires it.",
     features: ["Full infrastructure control", "Custom builds", "Self-hosting support"],
   },
 ]
@@ -686,7 +686,7 @@ const enterpriseFeatures = [
   {
     title: "Automations",
     description:
-      "Connect OpnForm to your existing tools — send submissions to CRMs, trigger webhooks, or automate workflows with Zapier or Make.",
+      "Connect LP Forms to your existing tools — send submissions to CRMs, trigger webhooks, or automate workflows with Zapier or Make.",
     imageSrc: "/img/pages/enterprise/enterprise-2.png",
   },
   {
@@ -709,7 +709,7 @@ const enterpriseFeatures = [
   {
     title: "Flexible Deployment",
     description:
-      "Use OpnForm Cloud for simplicity — or self-host for complete control over data and uptime.",
+      "Use LP Forms Cloud for simplicity — or self-host for complete control over data and uptime.",
     imageSrc: "/img/pages/enterprise/enterprise-6.png",
   },
 ]
@@ -796,19 +796,19 @@ const enterpriseProofBlocks = [
 
 const enterpriseFaqs = [
   {
-    question: "Can OpnForm be self-hosted?",
+    question: "Can LP Forms be self-hosted?",
     answer:
-      "Yes. OpnForm can be deployed on your own infrastructure, and Enterprise support can help with self-hosting questions, migration, and deployment planning.",
+      "Yes. LP Forms can be deployed on your own infrastructure, and Enterprise support can help with self-hosting questions, migration, and deployment planning.",
   },
   {
-    question: "Does OpnForm support SSO?",
+    question: "Does LP Forms support SSO?",
     answer:
-      "Yes. OpnForm supports SSO options such as OIDC and Enterprise SSO controls such as SAML, depending on your setup and plan.",
+      "Yes. LP Forms supports SSO options such as OIDC and Enterprise SSO controls such as SAML, depending on your setup and plan.",
   },
   {
     question: "Where is form data hosted?",
     answer:
-      "Hosted OpnForm data is stored in France. You can also self-host OpnForm when your organization needs direct control over infrastructure and data residency.",
+      "Hosted LP Forms data is stored in France. You can also self-host LP Forms when your organization needs direct control over infrastructure and data residency.",
   },
   {
     question: "Can teams manage roles and permissions?",

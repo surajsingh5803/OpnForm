@@ -2,7 +2,7 @@
   <ComparisonPage
     competitor-name="JotForm"
     competitor-icon="opnform:jotform"
-    :hero-title="'OpnForm — The Open-Source JotForm Alternative'"
+    :hero-title="'LP Forms — The Open-Source JotForm Alternative'"
     competitor-plan-label="Starter"
     :free-plan-comparison="freePlanComparison"
     :switch-reasons="switchReasons"
@@ -12,7 +12,7 @@
     <template #hero-subtitle>
       Create beautiful, logic‑driven forms with <b>unlimited responses, full control, and zero limits</b> — all for free.
       <br/><br/>
-      Collect data the way you want. Whether you’re a big or small team, a startup, or a builder, OpnForm delivers everything Jotform does — without paywalls, usage caps, or per‑month submission limits.
+      Collect data the way you want. Whether you’re a big or small team, a startup, or a builder, LP Forms delivers everything Jotform does — without paywalls, usage caps, or per‑month submission limits.
     </template>
   </ComparisonPage>
 </template>
@@ -25,7 +25,7 @@ definePageMeta({
 })
 
 useOpnSeoMeta({
-  title: "OpnForm vs JotForm",
+  title: "LP Forms vs JotForm",
   description:
     "A powerful JotForm alternative with unlimited responses and full control — for free.",
 })

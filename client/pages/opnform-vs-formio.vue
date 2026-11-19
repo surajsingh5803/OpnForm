@@ -2,10 +2,10 @@
   <ComparisonPage
     competitor-name="Form.io"
     competitor-icon="opnform:formio"
-    :hero-title="'OpnForm — The Open-Source Form.io Alternative'"
+    :hero-title="'LP Forms — The Open-Source Form.io Alternative'"
     competitor-plan-label="Self-hosted"
-    :plan-comparison-title="'Hosted vs Self-hosted Setup:\nOpnForm vs Form.io'"
-    plan-comparison-subtitle="Compare OpnForm's hosted free plan with Form.io's developer-oriented self-hosted setup."
+    :plan-comparison-title="'Hosted vs Self-hosted Setup:\nLP Forms vs Form.io'"
+    plan-comparison-subtitle="Compare LP Forms's hosted free plan with Form.io's developer-oriented self-hosted setup."
     :free-plan-comparison="freePlanComparison"
     :switch-reasons="switchReasons"
     :feature-comparison="featureComparison"
@@ -13,7 +13,7 @@
     <template #hero-subtitle>
       Create beautiful, logic‑driven forms with <b>unlimited responses, full control, and zero limits</b> — all for free.
       <br/><br/>
-      While Form.io is a developer‑centric form + API platform requiring backend setup and engineering effort, OpnForm delivers both <b>a user‑friendly form builder and developer workflows</b> out of the box. You get all the power of modern forms without needing custom backend infrastructure.
+      While Form.io is a developer‑centric form + API platform requiring backend setup and engineering effort, LP Forms delivers both <b>a user‑friendly form builder and developer workflows</b> out of the box. You get all the power of modern forms without needing custom backend infrastructure.
     </template>
   </ComparisonPage>
 </template>
@@ -26,7 +26,7 @@ definePageMeta({
 })
 
 useOpnSeoMeta({
-  title: "OpnForm vs Form.io",
+  title: "LP Forms vs Form.io",
   description:
     "A powerful Form.io alternative with unlimited responses and full control — for free.",
 })

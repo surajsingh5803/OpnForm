@@ -90,13 +90,13 @@ useOpnSeoMeta({
   title: () => {
     if (!type.value) return "Form Templates"
     if (type.value.meta_title.length > 60) {
-      return type.value.meta_title
+      return type.value.meta_title.replace(/OpnForms?/gi, 'LP Forms')
     }
-    return type.value.meta_title
+    return type.value.meta_title.replace(/OpnForms?/gi, 'LP Forms')
   },
   description: () =>
     type.value
-      ? type.value.meta_description
+      ? type.value.meta_description?.replace(/OpnForms?/gi, 'LP Forms')
       : "Our collection of beautiful templates to create your own forms!",
 })
 useHead({
@@ -105,13 +105,13 @@ useHead({
     if (
       type.value &&
       type.value.meta_title.length < 60 &&
-      !type.value.meta_title.toLowerCase().includes("opnform")
+      !type.value.meta_title.toLowerCase().includes("lp forms")
     ) {
       return titleChunk
-        ? `${titleChunk} - OpnForm`
-        : "Form Templates - OpnForm"
+        ? `${titleChunk} - LP Forms`
+        : "Form Templates - LP Forms"
     }
-    return titleChunk ? titleChunk : "Form Templates - OpnForm"
+    return titleChunk ? titleChunk : "Form Templates - LP Forms"
   },
 })
 </script>

@@ -18,7 +18,7 @@
       </div>
 
       <UButton
-        to="https://docs.opnform.com/integrations/mcp"
+        to="https://github.com/surajsingh5803/OpnForm#readme"
         target="_blank"
         label="Setup guide"
         icon="i-heroicons-arrow-up-right"
@@ -231,14 +231,14 @@ const snippetOptions = [
     key: 'cursor',
     label: 'Cursor',
     icon: 'i-heroicons-cursor-arrow-rays',
-    description: 'Install OpnForm directly in Cursor, or copy the JSON configuration below.',
+    description: 'Install LP Forms directly in Cursor, or copy the JSON configuration below.',
     installLabel: 'Install in Cursor',
   },
   {
     key: 'claude_code',
     label: 'Claude Code',
     icon: 'i-heroicons-chat-bubble-left-right',
-    description: 'Run this command, then use /mcp in Claude Code to authenticate with OpnForm.',
+    description: 'Run this command, then use /mcp in Claude Code to authenticate with LP Forms.',
   },
   {
     key: 'chatgpt',
@@ -286,12 +286,12 @@ const isSelfHosted = computed(() => settings.value?.self_hosted !== false)
 
 const pageDescription = computed(() => {
   return isSelfHosted.value
-    ? 'Connect AI assistants directly to this OpnForm instance.'
-    : 'Connect AI assistants to OpnForm Cloud.'
+    ? 'Connect AI assistants directly to this LP Forms instance.'
+    : 'Connect AI assistants to LP Forms Cloud.'
 })
 
 const statusTitle = computed(() => {
-  if (!isSelfHosted.value) return 'OpnForm MCP is ready'
+  if (!isSelfHosted.value) return 'LP Forms MCP is ready'
   if (!settings.value?.ready) return 'Server setup required'
   return isMcpAvailable.value ? 'MCP is available' : 'Ready to connect'
 })
@@ -299,7 +299,7 @@ const statusTitle = computed(() => {
 const statusDescription = computed(() => {
   if (!isSelfHosted.value) return 'Create private drafts without signing in, or connect your account to manage forms and read submissions.'
   if (!settings.value?.ready) return 'Resolve the prerequisites below before exposing the MCP endpoint.'
-  if (isMcpAvailable.value) return 'Connected AI assistants can create and manage forms and read submissions using your OpnForm account.'
+  if (isMcpAvailable.value) return 'Connected AI assistants can create and manage forms and read submissions using your LP Forms account.'
   return 'OAuth is ready. Enable MCP when you want this instance to accept agent connections.'
 })
 

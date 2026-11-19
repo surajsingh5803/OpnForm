@@ -45,7 +45,7 @@
           </p>
           <ul class="mt-4 space-y-2 text-sm">
             <li>
-              Do you want to know why users choose OpnForm? 
+              Do you want to know why users choose LP Forms? 
               <NuxtLink
                 class="text-blue-500 hover:text-blue-600"
                 :to="{ name: 'ai-form-builder' }"
@@ -63,13 +63,7 @@
               </NuxtLink>
             </li>
             <li>
-              Check Out Our Help Center
-              <NuxtLink
-                class="text-blue-500 hover:text-blue-600"
-                to="https://help.opnform.com/en/"
-              >
-                Find quick answers to common questions.
-              </NuxtLink>
+              If you own this form, sign in to LP Forms and check its status or sharing link.
             </li>
           </ul>
         </div>
@@ -105,7 +99,7 @@ const actions = [
   {
     to: { name: 'index' },
     icon: 'i-heroicons-document-magnifying-glass',
-    text: 'Explore OpnForm'
+    text: 'Explore LP Forms'
   },
   {
     href: '#',

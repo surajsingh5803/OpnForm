@@ -4,7 +4,7 @@
       <div class="relative z-2 px-8 py-14 sm:px-12 sm:py-16">
         <div class="mx-auto max-w-3xl text-center">
           <h1 class="text-4xl font-semibold tracking-[-1%] text-neutral-950 sm:text-[56px] sm:leading-16">
-            Connect OpnForm to your workflow.
+            Connect LP Forms to your workflow.
           </h1>
           <p class="mt-4 text-lg font-normal leading-7 tracking-[-1.5%] text-neutral-600 sm:text-xl sm:leading-8">
             Send responses instantly to your tools. Automate notifications, sync data, and connect your forms to the apps your team already uses.
@@ -104,7 +104,7 @@ defineRouteRules({
 
 useOpnSeoMeta({
   title: 'Integrations',
-  description: 'Connect OpnForm with notification, automation, payment, and database tools to send submissions into your existing workflows.',
+  description: 'Connect LP Forms with notification, automation, payment, and database tools to send submissions into your existing workflows.',
 })
 
 const crisp = useCrisp()
@@ -120,8 +120,8 @@ const sortedIntegrations = computed(() => integrations.value ?? [])
 
 const integrationsSchema = computed(() => buildSchemaGraph([
   buildCollectionPageSchema({
-    name: 'OpnForm Integrations',
-    description: 'Connect OpnForm with notification, automation, payment, and database tools to send submissions into your existing workflows.',
+    name: 'LP Forms Integrations',
+    description: 'Connect LP Forms with notification, automation, payment, and database tools to send submissions into your existing workflows.',
     path: '/integrations',
   }),
   buildBreadcrumbSchema([
@@ -135,7 +135,7 @@ const integrationsSchema = computed(() => buildSchemaGraph([
     })),
     {
       path: '/integrations',
-      name: 'OpnForm integrations',
+      name: 'LP Forms integrations',
     },
   ),
 ]))

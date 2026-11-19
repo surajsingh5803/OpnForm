@@ -178,7 +178,7 @@ const otherIntegrations = computed(() => getOtherIntegrations(integration.value,
 
 useOpnSeoMeta({
   title: () => integration.value?.seoTitle ?? integration.value?.title ?? 'Integrations',
-  description: () => integration.value?.seoDescription ?? integration.value?.summary ?? 'Connect OpnForm with your existing tools and workflows.',
+  description: () => integration.value?.seoDescription ?? integration.value?.summary ?? 'Connect LP Forms with your existing tools and workflows.',
 })
 
 const integrationSchema = computed(() => {
@@ -186,7 +186,7 @@ const integrationSchema = computed(() => {
 
   const description = integration.value.seoDescription
     ?? integration.value.summary
-    ?? 'Connect OpnForm with your existing tools and workflows.'
+    ?? 'Connect LP Forms with your existing tools and workflows.'
 
   return buildSchemaGraph([
     buildWebPageSchema({

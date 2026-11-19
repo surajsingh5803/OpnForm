@@ -82,7 +82,7 @@
       </div>
       <div v-for="(record, domain) in verificationRecords" :key="domain" class="max-w-xl rounded-md border border-neutral-200 p-4 text-sm">
         <p class="font-medium">Verify ownership of {{ domain }}</p>
-        <p class="mt-1 text-neutral-600">Add this TXT record in your DNS provider, wait for propagation, then save your domains. Keep your existing CNAME pointing to OpnForm.</p>
+        <p class="mt-1 text-neutral-600">Add this TXT record in your DNS provider, wait for propagation, then save your domains. Keep your existing CNAME pointing to your LP Forms hosting provider.</p>
         <dl class="mt-3 space-y-2">
           <div><dt class="font-medium">TXT name / host</dt><dd class="break-all font-mono select-all">{{ record.host }}</dd></div>
           <div><dt class="font-medium">TXT value</dt><dd class="break-all font-mono select-all">{{ record.value }}</dd></div>

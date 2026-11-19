@@ -1,0 +1,39 @@
+server {
+    listen ${PORT};
+    server_name _;
+    root /usr/share/nginx/html/public;
+    index index.php;
+    client_max_body_size 64m;
+    access_log /dev/stdout;
+    error_log /dev/stderr warn;
+
+    location = /healthz {
+        access_log off;
+        add_header Content-Type text/plain;
+        return 200 'ok';
+    }
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    # OAuth discovery endpoints need to reach Laravel.
+    location ~ ^/\.well-known/(oauth-authorization-server|oauth-protected-resource(/mcp)?)$ {
+        rewrite ^ /index.php last;
+    }
+
+    location ~ \.php$ {
+        include fastcgi_params;
+        fastcgi_pass 127.0.0.1:9000;
+        fastcgi_param SCRIPT_FILENAME $document_root/index.php;
+        fastcgi_param REQUEST_URI $request_uri;
+        fastcgi_param HTTP_X_FORWARDED_FOR $proxy_add_x_forwarded_for;
+        fastcgi_param HTTP_X_FORWARDED_HOST $http_x_forwarded_host;
+        fastcgi_param HTTP_X_FORWARDED_PROTO $http_x_forwarded_proto;
+        fastcgi_read_timeout 180s;
+    }
+
+    location ~ /\. {
+        deny all;
+    }
+}

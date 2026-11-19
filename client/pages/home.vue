@@ -171,7 +171,7 @@ definePageMeta({
 useOpnSeoMeta({
   title: "Your Forms",
   description:
-    "All of your OpnForm are here. Create new forms, or update your existing forms.",
+    "All of your LP Forms forms are here. Create new forms, or update your existing forms.",
 })
 
 // Composables

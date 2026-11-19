@@ -15,7 +15,7 @@
           icon="i-heroicons-code-bracket"
           variant="outline"
           color="neutral"
-          to="https://docs.opnform.com/embedding/javascript-sdk#custom-code-integration"
+          to="https://github.com/surajsingh5803/OpnForm#readme"
           target="_blank"
         />
         <UButton
@@ -164,7 +164,7 @@ const customCodeHelp = computed(() => {
     return 'Saves changes and visit any form page to test. Workspace code is applied to all forms in this workspace.'
   }
   if (isSelfHosted.value && !allowSelfHosted.value && !hasCustomDomain.value) {
-    return 'Custom code is disabled for safety on self-hosted. Enable via CUSTOM_CODE_ENABLE_SELF_HOSTED=true. See technical docs: https://docs.opnform.com/deployment/enterprise-features/custom-code'
+    return 'Custom code is disabled for safety on self-hosted. Enable via CUSTOM_CODE_ENABLE_SELF_HOSTED=true. See technical docs: https://github.com/surajsingh5803/OpnForm#readme'
   }
   return 'Custom code requires a Pro plan and a custom domain configured for this workspace.'
 })

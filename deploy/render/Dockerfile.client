@@ -1,0 +1,19 @@
+# Source-build the Nuxt SSR frontend. Render does not run docker-compose.yml.
+FROM node:24.22.1-alpine AS builder
+WORKDIR /app
+RUN apk add --no-cache git python3 make g++
+COPY client/package.json client/package-lock.json ./
+RUN npm ci --no-audit --no-progress
+COPY client/ ./
+ENV NODE_ENV=production NUXT_TELEMETRY_DISABLED=1 GENERATE_SOURCEMAP=false
+ENV NODE_OPTIONS=--max-old-space-size=4096
+RUN npm run build
+
+FROM node:24.22.1-alpine
+WORKDIR /app
+COPY --from=builder /app/.output/ /app/
+COPY deploy/render/start-ui.sh /usr/local/bin/start-lp-forms-ui
+RUN chmod +x /usr/local/bin/start-lp-forms-ui
+ENV NODE_ENV=production NITRO_HOST=0.0.0.0 PORT=10000 NITRO_PORT=10000
+EXPOSE 10000
+CMD ["/usr/local/bin/start-lp-forms-ui"]
