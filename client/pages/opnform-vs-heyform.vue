@@ -2,10 +2,10 @@
   <ComparisonPage
     competitor-name="HeyForm"
     competitor-icon="opnform:heyform"
-    :hero-title="'OpnForm — The Open-Source HeyForm Alternative'"
+    :hero-title="'LP Forms — The Open-Source HeyForm Alternative'"
     competitor-plan-label="Basic"
-    :plan-comparison-title="'Entry Plan Comparison:\nOpnForm Free vs HeyForm Basic'"
-    plan-comparison-subtitle="Compare OpnForm's free plan with HeyForm's entry cloud plan."
+    :plan-comparison-title="'Entry Plan Comparison:\nLP Forms Free vs HeyForm Basic'"
+    plan-comparison-subtitle="Compare LP Forms's free plan with HeyForm's entry cloud plan."
     :free-plan-comparison="freePlanComparison"
     :switch-reasons="switchReasons"
     :feature-comparison="featureComparison"
@@ -14,7 +14,7 @@
     <template #hero-subtitle>
       Create beautiful, logic‑driven forms with <b>unlimited responses, full control, and zero limits</b> — all for free.
       <br/><br/>
-      HeyForm is a popular form builder that lets users create conversational forms with logic and integrations. Its public pricing starts with capped paid plans, while OpnForm delivers a <b>full form-building experience</b> with unlimited submissions, rich developer support, and self-hosting options.
+      HeyForm is a popular form builder that lets users create conversational forms with logic and integrations. Its public pricing starts with capped paid plans, while LP Forms delivers a <b>full form-building experience</b> with unlimited submissions, rich developer support, and self-hosting options.
     </template>
   </ComparisonPage>
 </template>
@@ -27,7 +27,7 @@ definePageMeta({
 })
 
 useOpnSeoMeta({
-  title: "OpnForm vs HeyForm",
+  title: "LP Forms vs HeyForm",
   description:
     "A powerful HeyForm alternative with unlimited responses and full control — for free.",
 })
