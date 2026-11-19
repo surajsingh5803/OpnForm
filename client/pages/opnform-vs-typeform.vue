@@ -3,7 +3,7 @@
     competitor-name="Typeform"
     competitor-icon="opnform:typeform"
     hero-import-source="typeform"
-    :hero-title="'OpnForm — the powerful Typeform alternative'"
+    :hero-title="'LP Forms — the powerful Typeform alternative'"
     :free-plan-comparison="freePlanComparison"
     :switch-reasons="switchReasons"
     :feature-comparison="featureComparison"
@@ -12,7 +12,7 @@
     <template #hero-subtitle>
       Create beautiful, logic‑driven forms with <b>unlimited responses, full control, and zero limits</b> — all for free.
       <br/><br/>
-      Collect data the way you want. Whether you’re a big or small team, a startup, or a builder, OpnForm gives you Typeform’s clean experience without usage caps, paywalls, or feature restrictions.
+      Collect data the way you want. Whether you’re a big or small team, a startup, or a builder, LP Forms gives you Typeform’s clean experience without usage caps, paywalls, or feature restrictions.
     </template>
   </ComparisonPage>
 </template>
@@ -25,7 +25,7 @@ definePageMeta({
 })
 
 useOpnSeoMeta({
-  title: "OpnForm vs Typeform",
+  title: "LP Forms vs Typeform",
   description:
     "A powerful Typeform alternative with unlimited responses and full control — for free.",
 })
